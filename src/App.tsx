@@ -463,7 +463,7 @@ function Hero() {
             letterSpacing: "0.01em",
           }}
         >
-          building AI agents &nbsp;·&nbsp; always learning
+          building AI agents &nbsp;·&nbsp; always learning 
         </div>
 
         <div
