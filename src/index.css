@@ -1,0 +1,363 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import 'tailwindcss';
+
+:root {
+  --bg: #06060f;
+  --bg-card: #0d0d1f;
+  --bg-card2: #111128;
+  --green: #00ff88;
+  --blue: #00c8ff;
+  --purple: #c040ff;
+  --yellow: #ffe100;
+  --pink: #ff3d9a;
+  --text: #f0eef8;
+  --muted: #6b6b8a;
+  --border: rgba(255, 255, 255, 0.07);
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+html::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Outfit', sans-serif;
+  overflow-x: hidden;
+}
+
+/* ─── Grid background ─────────────────────────────────── */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* ─── Glitch text ─────────────────────────────────────── */
+.glitch {
+  position: relative;
+  display: inline-block;
+}
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  white-space: inherit;
+  pointer-events: none;
+}
+.glitch::before {
+  color: var(--green);
+  animation: glitch-top 4s infinite;
+}
+.glitch::after {
+  color: var(--purple);
+  animation: glitch-bot 4s infinite;
+}
+
+@keyframes glitch-top {
+  0%,
+  88%,
+  100% {
+    opacity: 0;
+    transform: translate(0);
+  }
+  89% {
+    opacity: 0.9;
+    clip-path: inset(10% 0 60% 0);
+    transform: translate(-4px, 1px);
+  }
+  91% {
+    clip-path: inset(40% 0 30% 0);
+    transform: translate(4px, -1px);
+  }
+  93% {
+    clip-path: inset(70% 0 5% 0);
+    transform: translate(-2px, 2px);
+  }
+  95% {
+    opacity: 0.9;
+    clip-path: inset(20% 0 55% 0);
+    transform: translate(3px, 0);
+  }
+  97% {
+    opacity: 0;
+  }
+}
+
+@keyframes glitch-bot {
+  0%,
+  90%,
+  100% {
+    opacity: 0;
+    transform: translate(0);
+  }
+  90.5% {
+    opacity: 0.7;
+    clip-path: inset(60% 0 10% 0);
+    transform: translate(4px, -2px);
+  }
+  92% {
+    clip-path: inset(30% 0 45% 0);
+    transform: translate(-4px, 1px);
+  }
+  94% {
+    clip-path: inset(80% 0 5% 0);
+    transform: translate(2px, -1px);
+  }
+  96% {
+    opacity: 0.7;
+    clip-path: inset(55% 0 25% 0);
+    transform: translate(-3px, 0);
+  }
+  98% {
+    opacity: 0;
+  }
+}
+
+/* ─── Blob morph ──────────────────────────────────────── */
+@keyframes blob-a {
+  0%,
+  100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    transform: rotate(0deg) scale(1);
+  }
+  33% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+    transform: rotate(120deg) scale(1.05);
+  }
+  66% {
+    border-radius: 50% 60% 30% 70% / 40% 50% 60% 50%;
+    transform: rotate(240deg) scale(0.95);
+  }
+}
+
+@keyframes blob-b {
+  0%,
+  100% {
+    border-radius: 40% 60% 70% 30% / 50% 40% 60% 50%;
+    transform: rotate(0deg) scale(1);
+  }
+  33% {
+    border-radius: 60% 30% 50% 70% / 40% 70% 30% 60%;
+    transform: rotate(-120deg) scale(1.08);
+  }
+  66% {
+    border-radius: 70% 40% 30% 60% / 60% 30% 70% 40%;
+    transform: rotate(-240deg) scale(0.93);
+  }
+}
+
+@keyframes blob-c {
+  0%,
+  100% {
+    border-radius: 50% 50% 60% 40% / 40% 60% 40% 60%;
+  }
+  50% {
+    border-radius: 70% 30% 40% 60% / 60% 40% 70% 30%;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) translateX(0px);
+  }
+  33% {
+    transform: translateY(-22px) translateX(8px);
+  }
+  66% {
+    transform: translateY(-10px) translateX(-8px);
+  }
+}
+
+@keyframes float-b {
+  0%,
+  100% {
+    transform: translateY(0px) translateX(0px);
+  }
+  40% {
+    transform: translateY(-18px) translateX(-10px);
+  }
+  70% {
+    transform: translateY(-28px) translateX(6px);
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-rev {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+/* ─── Marquee ─────────────────────────────────────────── */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 20s linear infinite;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* ─── Scroll reveal ───────────────────────────────────── */
+.fade-up {
+  opacity: 0;
+  transform: translateY(36px);
+  transition:
+    opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.fade-up-delay-1 {
+  transition-delay: 0.1s;
+}
+.fade-up-delay-2 {
+  transition-delay: 0.2s;
+}
+.fade-up-delay-3 {
+  transition-delay: 0.3s;
+}
+.fade-up-delay-4 {
+  transition-delay: 0.4s;
+}
+
+/* ─── Card tilt ───────────────────────────────────────── */
+.card-tilt {
+  transition:
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.35s ease;
+  will-change: transform;
+}
+.card-tilt:hover {
+  transform: rotate(-1.5deg) translateY(-6px) scale(1.02);
+}
+
+/* ─── Button wiggle ───────────────────────────────────── */
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(-4deg);
+  }
+  60% {
+    transform: rotate(4deg);
+  }
+}
+.btn-wiggle:hover {
+  animation: wiggle 0.45s ease infinite;
+}
+
+/* ─── EQ bars ─────────────────────────────────────────── */
+@keyframes eq-dance {
+  0%,
+  100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(var(--eq-low, 0.3));
+  }
+}
+
+/* ─── Neon text helpers ───────────────────────────────── */
+.text-neon-green {
+  color: var(--green);
+  text-shadow: 0 0 20px rgba(0, 255, 136, 0.6);
+}
+.text-neon-blue {
+  color: var(--blue);
+  text-shadow: 0 0 20px rgba(0, 200, 255, 0.6);
+}
+.text-neon-purple {
+  color: var(--purple);
+  text-shadow: 0 0 20px rgba(192, 64, 255, 0.6);
+}
+.text-neon-yellow {
+  color: var(--yellow);
+  text-shadow: 0 0 20px rgba(255, 225, 0, 0.6);
+}
+
+/* ─── Neon border helpers ─────────────────────────────── */
+.border-neon-green {
+  border-color: var(--green);
+  box-shadow:
+    0 0 12px rgba(0, 255, 136, 0.3),
+    inset 0 0 12px rgba(0, 255, 136, 0.05);
+}
+.border-neon-blue {
+  border-color: var(--blue);
+  box-shadow:
+    0 0 12px rgba(0, 200, 255, 0.3),
+    inset 0 0 12px rgba(0, 200, 255, 0.05);
+}
+.border-neon-purple {
+  border-color: var(--purple);
+  box-shadow:
+    0 0 12px rgba(192, 64, 255, 0.3),
+    inset 0 0 12px rgba(192, 64, 255, 0.05);
+}
+.border-neon-yellow {
+  border-color: var(--yellow);
+  box-shadow:
+    0 0 12px rgba(255, 225, 0, 0.3),
+    inset 0 0 12px rgba(255, 225, 0, 0.05);
+}
+
+/* ─── Scan line ───────────────────────────────────────── */
+@keyframes scanline {
+  from {
+    top: -4px;
+  }
+  to {
+    top: 100%;
+  }
+}
+
+/* ─── Pulse ring ──────────────────────────────────────── */
+@keyframes ping-slow {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
