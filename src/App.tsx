@@ -685,71 +685,27 @@ function About() {
       >
         {/* Avatar blob */}
         <div
-          className={`fade-up ${inView ? "visible" : ""}`}
-          style={{
-            position: "relative",
-            display: "flex",
-            justifyContent: "center",
-          }}
-        >
-          <div
-            style={{
-              width: 320,
-              height: 320,
-              borderRadius: "60% 40% 30% 70% / 60% 30% 70% 40%",
-              animation: "blob-a 14s ease-in-out infinite",
-              background:
-                "linear-gradient(135deg, var(--green) 0%, var(--blue) 50%, var(--purple) 100%)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              position: "relative",
-              overflow: "hidden",
-              boxShadow:
-                "0 20px 50px rgba(10,148,99,0.16), 0 8px 24px rgba(137,49,201,0.12)",
-            }}
-          >
-            {/* Stylized initials */}
-            <div
-              style={{
-                fontFamily: "'Righteous', serif",
-                fontSize: 96,
-                color: "rgba(255,255,255,0.85)",
-                lineHeight: 1,
-                letterSpacing: "-0.02em",
-                zIndex: 1,
-              }}
-            >
-              SO
-            </div>
-            {/* Scan line effect */}
-            <div
-              style={{
-                position: "absolute",
-                inset: 0,
-                background:
-                  "repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(255,255,255,0.06) 3px, rgba(255,255,255,0.06) 4px)",
-                pointerEvents: "none",
-              }}
-            />
-          </div>
-
-          {/* Decorative ring */}
-          <div
-            style={{
-              position: "absolute",
-              width: 380,
-              height: 380,
-              top: "50%",
-              left: "50%",
-              transform: "translate(-50%, -50%)",
-              border: "1px dashed rgba(0,255,136,0.2)",
-              borderRadius: "50%",
-              animation: "spin-slow 20s linear infinite",
-              pointerEvents: "none",
-            }}
-          />
-        </div>
+  style={{
+    width: 320,
+    height: 420,
+    position: "relative",
+    overflow: "hidden",
+    boxShadow:
+      "0 20px 50px rgba(10,148,99,0.16), 0 8px 24px rgba(137,49,201,0.12)",
+  }}
+>
+  <img
+    src="/headshot.jpg"
+    alt="Samantha Oh"
+    style={{
+      position: "absolute",
+      inset: 0,
+      width: "100%",
+      height: "100%",
+      objectFit: "cover",
+    }}
+  />
+</div>
 
         {/* Setlist card */}
         <div className={`fade-up fade-up-delay-2 ${inView ? "visible" : ""}`}>
