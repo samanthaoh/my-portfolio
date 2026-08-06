@@ -345,46 +345,11 @@ function Hero() {
       />
 
       {/* Floating geometric shapes */}
-      <FloatShape
-        shape="star"
-        color="var(--yellow)"
-        size={28}
-        top="18%"
-        right="12%"
-        delay={0}
-      />
-      <FloatShape
-        shape="triangle"
-        color="var(--blue)"
-        size={22}
-        top="70%"
-        right="20%"
-        delay={1.2}
-      />
-      <FloatShape
-        shape="diamond"
-        color="var(--green)"
-        size={18}
-        top="35%"
-        right="6%"
-        delay={0.7}
-      />
-      <FloatShape
-        shape="circle"
-        color="var(--purple)"
-        size={14}
-        top="80%"
-        left="18%"
-        delay={2}
-      />
-      <FloatShape
-        shape="star"
-        color="var(--pink)"
-        size={20}
-        top="25%"
-        left="8%"
-        delay={1.5}
-      />
+      <FloatShape shape="note" color="var(--yellow)" size={28} top="18%" right="12%" delay={0} />
+      <FloatShape shape="waveform" color="var(--blue)" size={22} top="70%" right="20%" delay={1.2} />
+      <FloatShape shape="headphones" color="var(--green)" size={22} top="35%" right="6%" delay={0.7} />
+      <FloatShape shape="vinyl" color="var(--purple)" size={18} top="80%" left="18%" delay={2} />
+      <FloatShape shape="note" color="var(--pink)" size={20} top="25%" left="8%" delay={1.5} />
 
       {/* Bracket decorations */}
       <div
@@ -431,7 +396,7 @@ function Hero() {
             marginBottom: 20,
           }}
         >
-          ◉ Now playing — Season 2026
+          ◉ Now playing 
         </div>
 
         <h1
@@ -439,7 +404,7 @@ function Hero() {
           data-text="SAMANTHA OH"
           style={{
             fontFamily: "'Righteous', serif",
-            fontSize: "clamp(64px, 14vw, 160px)",
+            fontSize: "clamp(64px, 14vw, 100px)",
             lineHeight: 0.9,
             letterSpacing: "-0.02em",
             color: "var(--text)",
@@ -452,19 +417,6 @@ function Hero() {
 
         <div
           style={{
-            fontFamily: "'Righteous', sans-serif",
-            fontSize: "clamp(16px, 3vw, 22px)",
-            fontWeight: 400,
-            color: "var(--muted)",
-            marginBottom: 12,
-            letterSpacing: "0.01em",
-          }}
-        >
-          building AI agents &nbsp;·&nbsp; always learning 
-        </div>
-
-        <div
-          style={{
             display: "flex",
             gap: 12,
             justifyContent: "center",
@@ -472,7 +424,7 @@ function Hero() {
             flexWrap: "wrap",
             marginBottom: 48,
             fontFamily: "'Righteous', monospace",
-            fontSize: 11,
+            fontSize: 19,
             letterSpacing: "0.18em",
             textTransform: "uppercase",
             color: "var(--muted)",
@@ -591,7 +543,7 @@ function FloatShape({
   right,
   delay,
 }: {
-  shape: "star" | "triangle" | "diamond" | "circle"
+  shape: "note" | "headphones" | "vinyl" | "waveform"
   color: string
   size: number
   top: string
@@ -613,7 +565,7 @@ function FloatShape({
     pointerEvents: "none",
   }
 
-  if (shape === "circle") {
+  if (shape === "vinyl") {
     return (
       <div
         style={{
@@ -622,15 +574,66 @@ function FloatShape({
           border: `2px solid ${color}`,
           boxShadow: `0 0 12px ${color}`,
           opacity: 0.7,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
         }}
-      />
+      >
+        <div
+          style={{
+            width: "35%",
+            height: "35%",
+            borderRadius: "50%",
+            background: color,
+          }}
+        />
+      </div>
+    )
+  }
+
+  if (shape === "waveform") {
+    return (
+      <svg
+        style={style}
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke={color}
+        strokeWidth={2}
+        strokeLinecap="round"
+        opacity={0.7}
+        filter={`drop-shadow(0 0 6px ${color})`}
+      >
+        <line x1="4" y1="9" x2="4" y2="15" />
+        <line x1="9" y1="5" x2="9" y2="19" />
+        <line x1="14" y1="2" x2="14" y2="22" />
+        <line x1="19" y1="7" x2="19" y2="17" />
+      </svg>
+    )
+  }
+
+  if (shape === "note") {
+    return (
+      <svg
+        style={style}
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke={color}
+        strokeWidth={1.5}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        opacity={0.7}
+        filter={`drop-shadow(0 0 6px ${color})`}
+      >
+        <path d="M9 18V5l12-2v13" />
+        <circle cx="6" cy="18" r="3" />
+        <circle cx="18" cy="16" r="3" />
+      </svg>
     )
   }
 
   const svgs: Record<string, string> = {
-    star: "M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17 5.8 21.3l2.4-7.4L2 9.4h7.6L12 2z",
-    triangle: "M12 3L22 20H2L12 3z",
-    diamond: "M12 2L22 12 12 22 2 12z",
+    headphones:
+      "M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H3v-7a9 9 0 0 1 18 0v7h-3a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3",
   }
 
   return (
@@ -721,7 +724,7 @@ function About() {
           >
             ABOUT
             <br />
-            <span style={{ color: "var(--yellow)" }}>ME.</span>
+            <span style={{ color: "var(--green)" }}>ME.</span>
           </h2>
 
           <p
@@ -751,7 +754,7 @@ function About() {
           >
             <div
               style={{
-                background: "var(--yellow)",
+                background: "var(--green)",
                 padding: "8px 20px",
                 fontFamily: "'Righteous', serif",
                 fontSize: 13,
