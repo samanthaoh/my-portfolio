@@ -1,18 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Righteous&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Instrument+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Righteous&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Instrument+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
 @import 'tailwindcss';
 
 :root {
-  --bg: #06060f;
-  --bg-card: #0d0d1f;
-  --bg-card2: #111128;
-  --green: #00ff88;
-  --blue: #00c8ff;
-  --purple: #c040ff;
-  --yellow: #ffe100;
-  --pink: #ff3d9a;
-  --text: #f0eef8;
-  --muted: #6b6b8a;
-  --border: rgba(255, 255, 255, 0.07);
+  --bg: #faf7f0;
+  --bg-card: #ffffff;
+  --bg-card2: #f2ede1;
+  --green: #0a9463;
+  --blue: #0077b3;
+  --purple: #8931c9;
+  --yellow: #c98f00;
+  --pink: #d1226f;
+  --text: #211f2b;
+  --muted: #706c80;
+  --border: rgba(30, 25, 15, 0.09);
 }
 
 html {
@@ -26,15 +27,15 @@ html::-webkit-scrollbar {
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: 'Outfit', sans-serif;
+  font-family: 'Righteous', sans-serif;
   overflow-x: hidden;
 }
 
 /* ─── Grid background ─────────────────────────────────── */
 .grid-bg {
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    linear-gradient(rgba(30, 25, 15, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30, 25, 15, 0.05) 1px, transparent 1px);
   background-size: 48px 48px;
 }
 
@@ -299,45 +300,33 @@ body {
 /* ─── Neon text helpers ───────────────────────────────── */
 .text-neon-green {
   color: var(--green);
-  text-shadow: 0 0 20px rgba(0, 255, 136, 0.6);
 }
 .text-neon-blue {
   color: var(--blue);
-  text-shadow: 0 0 20px rgba(0, 200, 255, 0.6);
 }
 .text-neon-purple {
   color: var(--purple);
-  text-shadow: 0 0 20px rgba(192, 64, 255, 0.6);
 }
 .text-neon-yellow {
   color: var(--yellow);
-  text-shadow: 0 0 20px rgba(255, 225, 0, 0.6);
 }
 
-/* ─── Neon border helpers ─────────────────────────────── */
+/* ─── Accent border helpers ───────────────────────────── */
 .border-neon-green {
   border-color: var(--green);
-  box-shadow:
-    0 0 12px rgba(0, 255, 136, 0.3),
-    inset 0 0 12px rgba(0, 255, 136, 0.05);
+  box-shadow: 0 4px 14px rgba(10, 148, 99, 0.14);
 }
 .border-neon-blue {
   border-color: var(--blue);
-  box-shadow:
-    0 0 12px rgba(0, 200, 255, 0.3),
-    inset 0 0 12px rgba(0, 200, 255, 0.05);
+  box-shadow: 0 4px 14px rgba(0, 119, 179, 0.14);
 }
 .border-neon-purple {
   border-color: var(--purple);
-  box-shadow:
-    0 0 12px rgba(192, 64, 255, 0.3),
-    inset 0 0 12px rgba(192, 64, 255, 0.05);
+  box-shadow: 0 4px 14px rgba(137, 49, 201, 0.14);
 }
 .border-neon-yellow {
   border-color: var(--yellow);
-  box-shadow:
-    0 0 12px rgba(255, 225, 0, 0.3),
-    inset 0 0 12px rgba(255, 225, 0, 0.05);
+  box-shadow: 0 4px 14px rgba(201, 143, 0, 0.14);
 }
 
 /* ─── Scan line ───────────────────────────────────────── */

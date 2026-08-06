@@ -148,7 +148,7 @@ function Blob({
         borderRadius: "60% 40% 30% 70% / 60% 30% 70% 40%",
         background: color,
         filter: `blur(${blur}px)`,
-        opacity: 0.18,
+        opacity: 0.28,
         animation: `${anim} 12s ease-in-out infinite, float ${8 + delay}s ease-in-out infinite`,
         animationDelay: `${delay}s`,
         pointerEvents: "none",
@@ -166,17 +166,17 @@ function Marquee({ items, reverse }: { items: string[], reverse?: boolean }) {  
     <div
       style={{
         overflow: "hidden",
-        borderTop: "1px solid rgba(255,255,255,0.07)",
-        borderBottom: "1px solid rgba(255,255,255,0.07)",
+        borderTop: "1px solid rgba(30,25,15,0.09)",
+        borderBottom: "1px solid rgba(30,25,15,0.09)",
         padding: "12px 0",
-        background: "rgba(255,255,255,0.02)",
+        background: "rgba(30,25,15,0.035)",
       }}
     >
       <div
         className="marquee-track"
         style={{
           animationDirection: reverse ? "reverse" : "normal",
-          fontFamily: "'JetBrains Mono', monospace",
+          fontFamily: "'Righteous', monospace",
           fontSize: 12,
           letterSpacing: "0.12em",
           textTransform: "uppercase",
@@ -195,7 +195,7 @@ function SectionLabel({ children }: { children: string }) {
   return (
     <div
       style={{
-        fontFamily: "'JetBrains Mono', monospace",
+        fontFamily: "'Righteous', monospace",
         fontSize: 12,
         letterSpacing: "0.2em",
         color: "var(--muted)",
@@ -232,20 +232,19 @@ function Nav() {
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
-        background: scrolled ? "rgba(6,6,15,0.85)" : "transparent",
+        background: scrolled ? "rgba(250,247,240,0.85)" : "transparent",
         backdropFilter: scrolled ? "blur(16px)" : "none",
-        borderBottom: scrolled ? "1px solid rgba(255,255,255,0.06)" : "none",
+        borderBottom: scrolled ? "1px solid rgba(30,25,15,0.08)" : "none",
         transition: "background 0.4s, border-color 0.4s",
       }}
     >
       <a
         href="#hero"
         style={{
-          fontFamily: "'Righteous', sans-serif",
+          fontFamily: "'Righteous', serif",
           fontSize: 20,
           color: "var(--green)",
           textDecoration: "none",
-          textShadow: "0 0 20px rgba(0,255,136,0.5)",
           letterSpacing: "0.05em",
         }}
       >
@@ -257,7 +256,7 @@ function Nav() {
             key={link}
             href={`#${link.toLowerCase()}`}
             style={{
-              fontFamily: "'JetBrains Mono', monospace",
+              fontFamily: "'Righteous', monospace",
               fontSize: 11,
               letterSpacing: "0.15em",
               textTransform: "uppercase",
@@ -276,11 +275,10 @@ function Nav() {
             padding: "4px 10px",
             border: "1px solid var(--green)",
             borderRadius: 4,
-            fontFamily: "'JetBrains Mono', monospace",
+            fontFamily: "'Righteous', monospace",
             fontSize: 10,
             letterSpacing: "0.12em",
             color: "var(--green)",
-            textShadow: "0 0 12px rgba(0,255,136,0.5)",
             boxShadow: "0 0 8px rgba(0,255,136,0.15)",
           }}
         >
@@ -297,7 +295,6 @@ function Hero() {
   return (
     <section
       id="hero"
-      className="grid-bg"
       style={{
         position: "relative",
         minHeight: "100vh",
@@ -395,9 +392,9 @@ function Hero() {
           position: "absolute",
           top: 120,
           left: 32,
-          fontFamily: "'JetBrains Mono', monospace",
+          fontFamily: "'Righteous', monospace",
           fontSize: 14,
-          color: "rgba(255,255,255,0.12)",
+          color: "rgba(0, 0, 0, 0.16)",
           letterSpacing: "0.1em",
           lineHeight: 1.8,
           userSelect: "none",
@@ -426,7 +423,7 @@ function Hero() {
       >
         <div
           style={{
-            fontFamily: "'JetBrains Mono', monospace",
+            fontFamily: "'Righteous', monospace",
             fontSize: 12,
             letterSpacing: "0.25em",
             color: "var(--muted)",
@@ -441,7 +438,7 @@ function Hero() {
           className="glitch"
           data-text="SAMANTHA OH"
           style={{
-            fontFamily: "'Righteous', sans-serif",
+            fontFamily: "'Righteous', serif",
             fontSize: "clamp(64px, 14vw, 160px)",
             lineHeight: 0.9,
             letterSpacing: "-0.02em",
@@ -455,7 +452,7 @@ function Hero() {
 
         <div
           style={{
-            fontFamily: "'Outfit', sans-serif",
+            fontFamily: "'Righteous', sans-serif",
             fontSize: "clamp(16px, 3vw, 22px)",
             fontWeight: 400,
             color: "var(--muted)",
@@ -474,7 +471,7 @@ function Hero() {
             alignItems: "center",
             flexWrap: "wrap",
             marginBottom: 48,
-            fontFamily: "'JetBrains Mono', monospace",
+            fontFamily: "'Righteous', monospace",
             fontSize: 11,
             letterSpacing: "0.18em",
             textTransform: "uppercase",
@@ -504,14 +501,14 @@ function Hero() {
             style={{
               padding: "14px 32px",
               background: "var(--green)",
-              color: "#000",
-              fontFamily: "'Righteous', sans-serif",
+              color: "#fff",
+              fontFamily: "'Righteous', serif",
               fontSize: 15,
               letterSpacing: "0.08em",
               textDecoration: "none",
               borderRadius: 6,
               display: "inline-block",
-              boxShadow: "0 0 24px rgba(0,255,136,0.4)",
+              boxShadow: "0 8px 20px rgba(10,148,99,0.28)",
               transition: "box-shadow 0.2s",
             }}
           >
@@ -521,9 +518,9 @@ function Hero() {
             href="#contact"
             style={{
               padding: "14px 32px",
-              border: "1.5px solid rgba(255,255,255,0.2)",
+              border: "1.5px solid rgba(30,25,15,0.22)",
               color: "var(--text)",
-              fontFamily: "'Righteous', sans-serif",
+              fontFamily: "'Righteous', serif",
               fontSize: 15,
               letterSpacing: "0.08em",
               textDecoration: "none",
@@ -536,7 +533,7 @@ function Hero() {
               e.currentTarget.style.background = "rgba(192,64,255,0.1)"
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = "rgba(255,255,255,0.2)"
+              e.currentTarget.style.borderColor = "rgba(30,25,15,0.22)"
               e.currentTarget.style.background = "transparent"
             }}
           >
@@ -561,7 +558,7 @@ function Hero() {
       >
         <div
           style={{
-            fontFamily: "'JetBrains Mono', monospace",
+            fontFamily: "'Righteous', monospace",
             fontSize: 10,
             letterSpacing: "0.2em",
             color: "var(--muted)",
@@ -709,15 +706,15 @@ function About() {
               position: "relative",
               overflow: "hidden",
               boxShadow:
-                "0 0 60px rgba(0,255,136,0.2), 0 0 120px rgba(192,64,255,0.15)",
+                "0 20px 50px rgba(10,148,99,0.16), 0 8px 24px rgba(137,49,201,0.12)",
             }}
           >
             {/* Stylized initials */}
             <div
               style={{
-                fontFamily: "'Righteous', sans-serif",
+                fontFamily: "'Righteous', serif",
                 fontSize: 96,
-                color: "rgba(0,0,0,0.6)",
+                color: "rgba(255,255,255,0.85)",
                 lineHeight: 1,
                 letterSpacing: "-0.02em",
                 zIndex: 1,
@@ -731,7 +728,7 @@ function About() {
                 position: "absolute",
                 inset: 0,
                 background:
-                  "repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,0.06) 3px, rgba(0,0,0,0.06) 4px)",
+                  "repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(255,255,255,0.06) 3px, rgba(255,255,255,0.06) 4px)",
                 pointerEvents: "none",
               }}
             />
@@ -759,7 +756,7 @@ function About() {
           <SectionLabel>{"// 01 — The Setlist"}</SectionLabel>
           <h2
             style={{
-              fontFamily: "'Righteous', sans-serif",
+              fontFamily: "'Righteous', serif",
               fontSize: "clamp(36px, 5vw, 56px)",
               lineHeight: 0.95,
               color: "var(--text)",
@@ -790,7 +787,7 @@ function About() {
           {/* Setlist card */}
           <div
             style={{
-              border: "1px solid rgba(255,255,255,0.08)",
+              border: "1px solid rgba(30,25,15,0.1)",
               borderRadius: 12,
               background: "var(--bg-card)",
               overflow: "hidden",
@@ -800,7 +797,7 @@ function About() {
               style={{
                 background: "var(--yellow)",
                 padding: "8px 20px",
-                fontFamily: "'Righteous', sans-serif",
+                fontFamily: "'Righteous', serif",
                 fontSize: 13,
                 letterSpacing: "0.15em",
                 color: "#000",
@@ -818,13 +815,13 @@ function About() {
                   padding: "14px 20px",
                   borderBottom:
                     i < setlist.length - 1
-                      ? "1px solid rgba(255,255,255,0.06)"
+                      ? "1px solid rgba(30,25,15,0.08)"
                       : "none",
                 }}
               >
                 <span
                   style={{
-                    fontFamily: "'JetBrains Mono', monospace",
+                    fontFamily: "'Righteous', monospace",
                     fontSize: 10,
                     letterSpacing: "0.2em",
                     color: "var(--muted)",
@@ -869,7 +866,7 @@ function Projects() {
           <SectionLabel>{"// 02 — Show Flyers"}</SectionLabel>
           <h2
             style={{
-              fontFamily: "'Righteous', sans-serif",
+              fontFamily: "'Righteous', serif",
               fontSize: "clamp(40px, 6vw, 72px)",
               lineHeight: 0.9,
               color: "var(--text)",
@@ -921,7 +918,7 @@ function ProjectCard({
         transitionDelay: `${delay}s`,
         background: "var(--bg-card)",
         border: `1.5px solid ${
-          hovered ? proj.color : "rgba(255,255,255,0.07)"
+          hovered ? proj.color : "rgba(30,25,15,0.09)"
         }`,
         borderRadius: 12,
         overflow: "hidden",
@@ -943,10 +940,10 @@ function ProjectCard({
       >
         <div
           style={{
-            fontFamily: "'JetBrains Mono', monospace",
+            fontFamily: "'Righteous', monospace",
             fontSize: 10,
             letterSpacing: "0.2em",
-            color: "rgba(0,0,0,0.6)",
+            color: "rgba(255,255,255,0.75)",
             textTransform: "uppercase",
             marginBottom: 4,
           }}
@@ -955,9 +952,9 @@ function ProjectCard({
         </div>
         <div
           style={{
-            fontFamily: "'Righteous', sans-serif",
+            fontFamily: "'Righteous', serif",
             fontSize: 28,
-            color: "#000",
+            color: "#fff",
             lineHeight: 1.1,
             letterSpacing: "0.02em",
           }}
@@ -966,9 +963,9 @@ function ProjectCard({
         </div>
         <div
           style={{
-            fontFamily: "'Outfit', sans-serif",
+            fontFamily: "'Righteous', sans-serif",
             fontSize: 12,
-            color: "rgba(0,0,0,0.65)",
+            color: "rgba(255,255,255,0.8)",
             fontStyle: "italic",
             marginTop: 4,
           }}
@@ -981,7 +978,7 @@ function ProjectCard({
             position: "absolute",
             inset: 0,
             backgroundImage:
-              "linear-gradient(rgba(0,0,0,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.06) 1px, transparent 1px)",
+              "linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px)",
             backgroundSize: "20px 20px",
             pointerEvents: "none",
           }}
@@ -992,7 +989,7 @@ function ProjectCard({
       <div
         style={{
           height: 1,
-          borderTop: "1px dashed rgba(255,255,255,0.15)",
+          borderTop: "1px dashed rgba(30,25,15,0.18)",
           margin: "0 12px",
         }}
       />
@@ -1026,7 +1023,7 @@ function ProjectCard({
                 padding: "3px 10px",
                 border: `1px solid ${proj.color}44`,
                 borderRadius: 4,
-                fontFamily: "'JetBrains Mono', monospace",
+                fontFamily: "'Righteous', monospace",
                 fontSize: 10,
                 letterSpacing: "0.1em",
                 color: proj.color,
@@ -1048,7 +1045,7 @@ function ProjectCard({
               key={label}
               href={href}
               style={{
-                fontFamily: "'JetBrains Mono', monospace",
+                fontFamily: "'Righteous', monospace",
                 fontSize: 11,
                 letterSpacing: "0.12em",
                 color: "var(--muted)",
@@ -1092,7 +1089,7 @@ function Experience() {
           <SectionLabel>{"// 03 — Festival Lineup"}</SectionLabel>
           <h2
             style={{
-              fontFamily: "'Righteous', sans-serif",
+              fontFamily: "'Righteous', serif",
               fontSize: "clamp(40px, 6vw, 72px)",
               lineHeight: 0.9,
               color: "var(--text)",
@@ -1175,17 +1172,17 @@ function Experience() {
                       padding: "3px 10px",
                       background: exp.badgeColor,
                       borderRadius: 3,
-                      fontFamily: "'Righteous', sans-serif",
+                      fontFamily: "'Righteous', serif",
                       fontSize: 10,
                       letterSpacing: "0.15em",
-                      color: "#000",
+                      color: "#fff",
                     }}
                   >
                     {exp.badge}
                   </div>
                   <div
                     style={{
-                      fontFamily: "'JetBrains Mono', monospace",
+                      fontFamily: "'Righteous', monospace",
                       fontSize: 11,
                       letterSpacing: "0.1em",
                       color: "var(--muted)",
@@ -1198,7 +1195,7 @@ function Experience() {
 
                 <h3
                   style={{
-                    fontFamily: "'Righteous', sans-serif",
+                    fontFamily: "'Righteous', serif",
                     fontSize: 28,
                     color: "var(--text)",
                     margin: "0 0 4px",
@@ -1209,7 +1206,7 @@ function Experience() {
                 </h3>
                 <div
                   style={{
-                    fontFamily: "'Outfit', sans-serif",
+                    fontFamily: "'Righteous', sans-serif",
                     fontSize: 14,
                     color: exp.badgeColor,
                     marginBottom: 12,
@@ -1256,7 +1253,7 @@ function Skills() {
           <SectionLabel>{"// 04 — The Mix"}</SectionLabel>
           <h2
             style={{
-              fontFamily: "'Righteous', sans-serif",
+              fontFamily: "'Righteous', serif",
               fontSize: "clamp(40px, 6vw, 72px)",
               lineHeight: 0.9,
               color: "var(--text)",
@@ -1273,7 +1270,7 @@ function Skills() {
           className={`fade-up fade-up-delay-2 ${inView ? "visible" : ""}`}
           style={{
             background: "var(--bg-card)",
-            border: "1px solid rgba(255,255,255,0.07)",
+            border: "1px solid rgba(30,25,15,0.09)",
             borderRadius: 16,
             padding: "40px 32px 32px",
             position: "relative",
@@ -1293,7 +1290,7 @@ function Skills() {
           >
             <div
               style={{
-                fontFamily: "'JetBrains Mono', monospace",
+                fontFamily: "'Righteous', monospace",
                 fontSize: 11,
                 letterSpacing: "0.2em",
                 color: "var(--muted)",
@@ -1318,7 +1315,7 @@ function Skills() {
                   />
                   <span
                     style={{
-                      fontFamily: "'JetBrains Mono', monospace",
+                      fontFamily: "'Righteous', monospace",
                       fontSize: 10,
                       letterSpacing: "0.1em",
                       color: "var(--muted)",
@@ -1358,9 +1355,9 @@ function Skills() {
                 position: "absolute",
                 right: 32,
                 bottom: `${(v / 100) * 160 + 86}px`,
-                fontFamily: "'JetBrains Mono', monospace",
+                fontFamily: "'Righteous', monospace",
                 fontSize: 9,
-                color: "rgba(255,255,255,0.15)",
+                color: "rgba(30,25,15,0.18)",
                 pointerEvents: "none",
               }}
             >
@@ -1412,7 +1409,7 @@ function EQBar({
           style={{
             position: "absolute",
             inset: 0,
-            background: "rgba(255,255,255,0.04)",
+            background: "rgba(30,25,15,0.06)",
             borderRadius: 4,
           }}
         />
@@ -1438,7 +1435,7 @@ function EQBar({
       {/* Label */}
       <div
         style={{
-          fontFamily: "'JetBrains Mono', monospace",
+          fontFamily: "'Righteous', monospace",
           fontSize: 9,
           letterSpacing: "0.08em",
           color: inView ? color : "var(--muted)",
@@ -1507,7 +1504,7 @@ function Contact() {
           <SectionLabel>{"// 05 — Backstage Pass"}</SectionLabel>
           <h2
             style={{
-              fontFamily: "'Righteous', sans-serif",
+              fontFamily: "'Righteous', serif",
               fontSize: "clamp(40px, 7vw, 80px)",
               lineHeight: 0.9,
               color: "var(--text)",
@@ -1548,7 +1545,7 @@ function Contact() {
           <div style={{ padding: "40px 40px" }}>
             <div
               style={{
-                fontFamily: "'JetBrains Mono', monospace",
+                fontFamily: "'Righteous', monospace",
                 fontSize: 10,
                 letterSpacing: "0.2em",
                 color: "var(--muted)",
@@ -1561,7 +1558,7 @@ function Contact() {
 
             <div
               style={{
-                fontFamily: "'Righteous', sans-serif",
+                fontFamily: "'Righteous', serif",
                 fontSize: 40,
                 color: "var(--text)",
                 lineHeight: 1,
@@ -1572,7 +1569,7 @@ function Contact() {
             </div>
             <div
               style={{
-                fontFamily: "'Outfit', sans-serif",
+                fontFamily: "'Righteous', sans-serif",
                 fontSize: 14,
                 color: "var(--yellow)",
                 marginBottom: 36,
@@ -1591,7 +1588,7 @@ function Contact() {
                 >
                   <span
                     style={{
-                      fontFamily: "'JetBrains Mono', monospace",
+                      fontFamily: "'Righteous', monospace",
                       fontSize: 10,
                       letterSpacing: "0.18em",
                       color: "var(--muted)",
@@ -1640,12 +1637,11 @@ function Contact() {
             <div
               style={{
                 writingMode: "vertical-rl",
-                fontFamily: "'Righteous', sans-serif",
+                fontFamily: "'Righteous', serif",
                 fontSize: 11,
                 letterSpacing: "0.2em",
                 color: "var(--yellow)",
                 textTransform: "uppercase",
-                textShadow: "0 0 12px rgba(255,225,0,0.5)",
               }}
             >
               All Access Pass
@@ -1664,7 +1660,7 @@ function Footer() {
   return (
     <footer
       style={{
-        borderTop: "1px solid rgba(255,255,255,0.06)",
+        borderTop: "1px solid rgba(30,25,15,0.08)",
         padding: "28px 48px",
         display: "flex",
         justifyContent: "space-between",
@@ -1675,23 +1671,22 @@ function Footer() {
     >
       <div
         style={{
-          fontFamily: "'JetBrains Mono', monospace",
+          fontFamily: "'Righteous', monospace",
           fontSize: 11,
           color: "var(--muted)",
           letterSpacing: "0.1em",
         }}
       >
-        © 2025 Samantha Oh · Built with React + Vite
+        © 2026 Samantha Oh · Built with React + Vite
       </div>
       <div
         style={{
-          fontFamily: "'JetBrains Mono', monospace",
+          fontFamily: "'Righteous', monospace",
           fontSize: 11,
           color: "var(--muted)",
           letterSpacing: "0.1em",
         }}
       >
-        Designed like a flyer · Coded like an engineer
       </div>
     </footer>
   )
