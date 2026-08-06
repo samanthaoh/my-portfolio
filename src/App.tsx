@@ -657,7 +657,7 @@ function About() {
   const [ref, inView] = useInView()
   const setlist = [
     { icon: "◉", label: "VENUE", value: "University of Washington, Seattle" },
-    { icon: "◉", label: "STAGE", value: "B.S. Informatics — Data Science" },
+    { icon: "◉", label: "STAGE", value: "B.S. Informatics - Data Science" },
     {
       icon: "◉",
       label: "HEADLINER",
@@ -712,7 +712,7 @@ function About() {
 
         {/* Setlist card */}
         <div className={`fade-up fade-up-delay-2 ${inView ? "visible" : ""}`}>
-          <SectionLabel>{"// 01 — The Setlist"}</SectionLabel>
+          <SectionLabel>{"The Setlist"}</SectionLabel>
           <h2
             style={{
               fontFamily: "'Righteous', serif",
@@ -736,7 +736,7 @@ function About() {
               maxWidth: 480,
             }}
           >
-            I'm Samantha — an Informatics student at UW obsessed with making AI
+            I'm Samantha Oh, an Informatics student at UW interested in making AI
             systems that actually work in the real world. I've built LLM agents
             at CACI, shipped UI features at NT Concepts, and published research
             at George Mason. Currently running PR for IUGA and looking for
@@ -822,7 +822,7 @@ function Projects() {
           className={`fade-up ${inView ? "visible" : ""}`}
           style={{ marginBottom: 56 }}
         >
-          <SectionLabel>{"// 02 — Show Flyers"}</SectionLabel>
+          <SectionLabel>{"Show Flyers"}</SectionLabel>
           <h2
             style={{
               fontFamily: "'Righteous', serif",
@@ -1045,7 +1045,7 @@ function Experience() {
           className={`fade-up ${inView ? "visible" : ""}`}
           style={{ marginBottom: 64 }}
         >
-          <SectionLabel>{"// 03 — Festival Lineup"}</SectionLabel>
+          <SectionLabel>{"Festival Lineup"}</SectionLabel>
           <h2
             style={{
               fontFamily: "'Righteous', serif",
@@ -1209,7 +1209,7 @@ function Skills() {
           className={`fade-up ${inView ? "visible" : ""}`}
           style={{ marginBottom: 64 }}
         >
-          <SectionLabel>{"// 04 — The Mix"}</SectionLabel>
+          <SectionLabel>{"The Mix"}</SectionLabel>
           <h2
             style={{
               fontFamily: "'Righteous', serif",
@@ -1256,7 +1256,7 @@ function Skills() {
                 textTransform: "uppercase",
               }}
             >
-              ◉ Channel Strip — Maya Park · EQ View
+              ◉ Channel Strip — EQ View
             </div>
             <div style={{ display: "flex", gap: 24 }}>
               {cats.map((cat) => (
@@ -1460,7 +1460,7 @@ function Contact() {
           className={`fade-up ${inView ? "visible" : ""}`}
           style={{ marginBottom: 48, textAlign: "center" }}
         >
-          <SectionLabel>{"// 05 — Backstage Pass"}</SectionLabel>
+          <SectionLabel>{"Backstage Pass"}</SectionLabel>
           <h2
             style={{
               fontFamily: "'Righteous', serif",
