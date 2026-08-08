@@ -28,16 +28,6 @@ export default function App() {
       <About />
       <Marquee
         items={[
-          "Show Flyers",
-          "Projects",
-          "Ticket Stubs",
-          "Music Rec System · Sip App · GSU Redesign",
-        ]}
-        reverse
-      />
-      <Projects />
-      <Marquee
-        items={[
           "Festival Lineup",
           "Experience",
           "CACI International",
@@ -47,6 +37,16 @@ export default function App() {
         ]}
       />
       <Experience />
+      <Marquee
+        items={[
+          "Show Flyers",
+          "Projects",
+          "Ticket Stubs",
+          "Music Rec System · Sip App · GSU Redesign",
+        ]}
+        reverse
+      />
+      <Projects />
       <SideStage />
       <Skills />
       <Marquee

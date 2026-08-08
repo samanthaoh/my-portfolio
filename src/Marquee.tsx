@@ -1,5 +1,3 @@
-/* ─── Marquee divider ──────────────────────────────────────────────── */
-
 export default function Marquee({ items, reverse }: { items: string[], reverse?: boolean }) {
   const text = items.join("  ·  ") + "  ·  "
   const doubled = text + text

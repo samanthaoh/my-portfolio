@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react"
 
-/* ─── Nav ──────────────────────────────────────────────────────────── */
-
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false)
   useEffect(() => {

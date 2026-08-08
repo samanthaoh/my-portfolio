@@ -3,8 +3,6 @@ import { useInView } from "./useInView"
 import SectionLabel from "./SectionLabel"
 import { projects } from "./data"
 
-/* ─── Projects ─────────────────────────────────────────────────────── */
-
 export default function Projects() {
   const [ref, inView] = useInView()
   return (

@@ -1,8 +1,6 @@
 import { useInView } from "./useInView"
 import SectionLabel from "./SectionLabel"
 
-/* ─── Contact ──────────────────────────────────────────────────────── */
-
 export default function Contact() {
   const [ref, inView] = useInView()
   const links = [

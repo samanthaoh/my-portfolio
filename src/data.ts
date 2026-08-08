@@ -1,5 +1,3 @@
-/* ─── Data ─────────────────────────────────────────────────────────── */
-
 export const projects = [
   {
     name: "Music Rec System",
@@ -40,13 +38,13 @@ export const experience = [
     period: "Jun 2026 — Aug 2026",
     badge: "HEADLINER",
     badgeColor: "var(--green)",
-    desc: "Built LLM-powered agents in Python using the Agno framework and Docker to automate government contract analysis. Designed custom MCP tools and RAG pipelines backed by a vector knowledge base — cutting contract review time from days to 1–2 hours.",
+    desc: "Built LLM-powered agents in Python using the Agno framework and packaged via Docker containerization to automate government contract analysis. Designed custom MCP tools and RAG pipelines backed by a vector knowledge base — cutting contract review time from days to 1–2 hours.",
   },
   {
     role: "Information Systems Researcher",
     org: "George Mason University · Remote",
     period: "Jun 2025 — Aug 2025",
-    badge: "MAIN STAGE",
+    badge: "SUPPORTING",
     badgeColor: "var(--blue)",
     desc: "Collaborated with Dr. Xie to improve UI features on an Asian grocery app, applying A/B testing, regression analysis, and Python-based marketing analytics (Jieba, Requests). Published abstract in GMU's Journal of Student-Scientists' Research.",
   },
@@ -54,9 +52,9 @@ export const experience = [
     role: "Software Development Intern",
     org: "NT Concepts · Vienna, VA",
     period: "Jun 2024 — Aug 2024",
-    badge: "SUPPORTING",
+    badge: "MAIN STAGE",
     badgeColor: "var(--purple)",
-    desc: "Developed and enhanced 5 UI features for an Electron web app using React, Redux, JavaScript, and CSS. Wrote 15+ Jest unit tests and delivered sprint demos to 90+ stakeholders.",
+    desc: "Developed and enhanced 5 UI features for an Electron web app using React, Redux, JavaScript, and CSS. Managed software delivery and tracked sprint progress using Jira within an Agile Scrum framework. Authored 15+ Jest unit tests to maintain code stability, and presented live feature walkthroughs to 90+ stakeholders during sprint demos.",
   },
 ]
 

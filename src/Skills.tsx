@@ -3,8 +3,6 @@ import { useInView } from "./useInView"
 import SectionLabel from "./SectionLabel"
 import { skills, catColors, catLabels } from "./data"
 
-/* ─── Skills ───────────────────────────────────────────────────────── */
-
 export default function Skills() {
   const [ref, inView] = useInView()
   const cats = Array.from(new Set(skills.map((s) => s.cat)))

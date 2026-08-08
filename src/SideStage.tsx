@@ -1,8 +1,6 @@
 import { useInView } from "./useInView"
 import SectionLabel from "./SectionLabel"
 
-/* ─── Side Stage (leadership + interests) ─────────────────────────── */
-
 export default function SideStage() {
   const [ref, inView] = useInView()
 
@@ -12,7 +10,7 @@ export default function SideStage() {
       color: "var(--pink)",
       title: "Director of PR, IUGA",
       body:
-        "I run PR for UW's Informatics Undergrad Association. Built out the brand and visual system, ran exec board social, and planned events start to finish. Biggest one was iFormal, a boat party that sold out at around 250 people.",
+        "I handle PR for the UW Informatics Undergraduate Association, where I'm building our brand identity and marketing events to a 1,000+ follower community. My goal is to bridge the gap between Informatics students, the broader campus, and career opportunities. ",
       tags: ["Event Planning", "Brand System", "Social Strategy"],
     },
     {
@@ -20,8 +18,8 @@ export default function SideStage() {
       color: "var(--blue)",
       title: "Outside of Work",
       body:
-        "Big into live music, mostly house and electronic (not really an EDM person). I'm usually tracking down the next show or adding to a setlist somewhere. Otherwise probably tinkering with this site.",
-      tags: ["Live Music", "House/Electronic", "Concerts"],
+        "I love going to concerts, some of my recent favorites were Tate McRae and Madison Beer. I also love exploring new coffee and matcha spots, you can usually find me in a café on the weekends. Also, I've recently been trying to get back into reading!",
+      tags: ["Café Hopping", "Reading", "Concerts"],
     },
   ]
 
