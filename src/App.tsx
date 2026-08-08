@@ -160,7 +160,8 @@ function Blob({
 
 /* ─── Marquee divider ──────────────────────────────────────────────── */
 
-function Marquee({ items, reverse }: { items: string[], reverse?: boolean }) {  const text = items.join("  ·  ") + "  ·  "
+function Marquee({ items, reverse }: { items: string[], reverse?: boolean }) {
+  const text = items.join("  ·  ") + "  ·  "
   const doubled = text + text
   return (
     <div
@@ -351,31 +352,6 @@ function Hero() {
       <FloatShape shape="vinyl" color="var(--purple)" size={18} top="80%" left="18%" delay={2} />
       <FloatShape shape="note" color="var(--pink)" size={20} top="25%" left="8%" delay={1.5} />
 
-      {/* Bracket decorations */}
-      <div
-        style={{
-          position: "absolute",
-          top: 120,
-          left: 32,
-          fontFamily: "'Righteous', monospace",
-          fontSize: 14,
-          color: "rgba(0, 0, 0, 0.16)",
-          letterSpacing: "0.1em",
-          lineHeight: 1.8,
-          userSelect: "none",
-        }}
-      >
-        {"{"}
-        <br />
-        {'  role: "builder",'}
-        <br />
-        {'  stack: "ai + data",'}
-        <br />
-        {'  status: "shipping"'}
-        <br />
-        {"}"}
-      </div>
-
       {/* Main content */}
       <div
         style={{
@@ -391,12 +367,12 @@ function Hero() {
             fontFamily: "'Righteous', monospace",
             fontSize: 12,
             letterSpacing: "0.25em",
-            color: "var(--muted)",
+            color: "rgb(90, 90, 90)",
             textTransform: "uppercase",
             marginBottom: 20,
           }}
         >
-          ◉ Now playing 
+          &#9835; Now playing
         </div>
 
         <h1
@@ -686,29 +662,28 @@ function About() {
           alignItems: "center",
         }}
       >
-        {/* Avatar blob */}
         <div
-  style={{
-    width: 320,
-    height: 420,
-    position: "relative",
-    overflow: "hidden",
-    boxShadow:
-      "0 20px 50px rgba(10,148,99,0.16), 0 8px 24px rgba(137,49,201,0.12)",
-  }}
->
-  <img
-    src="/headshot.jpg"
-    alt="Samantha Oh"
-    style={{
-      position: "absolute",
-      inset: 0,
-      width: "100%",
-      height: "100%",
-      objectFit: "cover",
-    }}
-  />
-</div>
+          style={{
+            width: 320,
+            height: 420,
+            position: "relative",
+            overflow: "hidden",
+            boxShadow:
+              "0 20px 50px rgba(10,148,99,0.16), 0 8px 24px rgba(137,49,201,0.12)",
+          }}
+        >
+          <img
+            src="/headshot.jpg"
+            alt="Samantha Oh"
+            style={{
+              position: "absolute",
+              inset: 0,
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+            }}
+          />
+        </div>
 
         {/* Setlist card */}
         <div className={`fade-up fade-up-delay-2 ${inView ? "visible" : ""}`}>
@@ -876,9 +851,8 @@ function ProjectCard({
       style={{
         transitionDelay: `${delay}s`,
         background: "var(--bg-card)",
-        border: `1.5px solid ${
-          hovered ? proj.color : "rgba(30,25,15,0.09)"
-        }`,
+        border: `1.5px solid ${hovered ? proj.color : "rgba(30,25,15,0.09)"
+          }`,
         borderRadius: 12,
         overflow: "hidden",
         cursor: "pointer",
@@ -1079,9 +1053,8 @@ function Experience() {
           {experience.map((exp, i) => (
             <div
               key={exp.role}
-              className={`fade-up fade-up-delay-${i + 1} ${
-                inView ? "visible" : ""
-              }`}
+              className={`fade-up fade-up-delay-${i + 1} ${inView ? "visible" : ""
+                }`}
               style={{
                 display: "flex",
                 gap: 40,
@@ -1472,7 +1445,7 @@ function Contact() {
           >
             LET'S BUILD
             <br />
-            <span style={{ color: "var(--yellow)" }}>SOMETHING.</span>
+            <span style={{ color: "var(--yellow)" }}>SOMETHING COOL.</span>
           </h2>
           <p
             style={{
@@ -1482,8 +1455,7 @@ function Contact() {
               margin: "0 auto",
             }}
           >
-            Open to internships, collabs, side projects, and coffee chats. Slide
-            in.
+            Always down for exciting projects, internships, & grabbing coffee. Reach out!
           </p>
         </div>
 
@@ -1493,11 +1465,11 @@ function Contact() {
           style={{
             display: "grid",
             gridTemplateColumns: "1fr auto",
-            border: "1.5px solid rgba(255,225,0,0.3)",
+            border: "1.5px solid var(--yellow)",
             borderRadius: 16,
             overflow: "hidden",
             background: "var(--bg-card)",
-            boxShadow: "0 0 60px rgba(255,225,0,0.08)",
+            boxShadow: "0 12px 32px rgba(201,143,0,0.18)",
           }}
         >
           {/* Main pass body */}
@@ -1583,9 +1555,9 @@ function Contact() {
           {/* Stub */}
           <div
             style={{
-              borderLeft: "1.5px dashed rgba(255,225,0,0.2)",
+              borderLeft: "1.5px dashed var(--yellow)",
               width: 80,
-              background: "rgba(255,225,0,0.04)",
+              background: "rgba(201,143,0,0.08)",
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
