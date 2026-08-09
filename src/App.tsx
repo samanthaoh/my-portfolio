@@ -13,20 +13,20 @@ const navItems = [
 
 const skillColors: Record<string, { bg: string; ink: string }> = {
   lang: {
-    bg: "var(--pastel-blue)",
-    ink: "var(--ink-blue)",
+    bg: "var(--accent-2-light)",
+    ink: "var(--accent-2)",
   },
   frame: {
-    bg: "var(--pastel-mint)",
-    ink: "var(--ink-mint)",
+    bg: "var(--accent-light)",
+    ink: "var(--accent)",
   },
   ml: {
-    bg: "var(--pastel-lavender)",
-    ink: "var(--ink-lavender)",
+    bg: "var(--accent-2-light)",
+    ink: "var(--accent-2)",
   },
   tool: {
-    bg: "var(--pastel-peach)",
-    ink: "var(--ink-peach)",
+    bg: "var(--accent-light)",
+    ink: "var(--accent)",
   },
 }
 
@@ -114,7 +114,7 @@ export default function App() {
             </a>
 
             <a href="#contact" className="button button-secondary">
-              Say hello!
+              Let's connect
             </a>
           </div>
         </div>
@@ -140,7 +140,7 @@ export default function App() {
           </div>
 
           <div>
-            <span className="section-label label-lavender">
+            <span className="section-label label-accent">
               About me
             </span>
 
@@ -163,29 +163,29 @@ export default function App() {
               <Detail
                 label="School"
                 value="University of Washington"
-                bg="var(--pastel-lavender)"
-                ink="var(--ink-lavender)"
+                bg="var(--accent-light)"
+                ink="var(--accent)"
               />
 
               <Detail
                 label="Degree"
                 value="B.S. Informatics · Data Science"
-                bg="var(--pastel-blue)"
-                ink="var(--ink-blue)"
+                bg="var(--accent-2-light)"
+                ink="var(--accent-2)"
               />
 
               <Detail
                 label="Focus"
                 value="Agentic AI + Data + UX"
-                bg="var(--pastel-mint)"
-                ink="var(--ink-mint)"
+                bg="var(--accent-light)"
+                ink="var(--accent)"
               />
 
               <Detail
                 label="Graduating"
                 value="June 2029"
-                bg="var(--pastel-peach)"
-                ink="var(--ink-peach)"
+                bg="var(--accent-2-light)"
+                ink="var(--accent-2)"
               />
             </div>
           </div>
@@ -197,7 +197,7 @@ export default function App() {
         <div className="container">
           <div className="section-heading">
             <div>
-              <span className="section-label label-blue">
+              <span className="section-label label-accent-2">
                 Experience
               </span>
 
@@ -228,11 +228,11 @@ export default function App() {
       <OutsideOfWork />
 
       {/* PROJECTS */}
-      <section id="projects" className="section">
+      <section id="projects" className="section section-soft">
         <div className="container">
           <div className="section-heading">
             <div>
-              <span className="section-label label-peach">
+              <span className="section-label label-accent">
                 Projects
               </span>
 
@@ -266,9 +266,9 @@ export default function App() {
       </section>
 
       {/* SKILLS */}
-      <section id="skills" className="section section-soft">
+      <section id="skills" className="section">
         <div className="container">
-          <span className="section-label label-mint">
+          <span className="section-label label-accent-2">
             Skills
           </span>
 
@@ -328,7 +328,7 @@ export default function App() {
 
         <div className="container contact-grid">
           <div>
-            <span className="section-label label-pink">
+            <span className="section-label label-accent">
               Get in touch
             </span>
 
@@ -347,8 +347,7 @@ export default function App() {
           <div className="contact-links">
             <a
               href="mailto:sgoh6@uw.edu"
-              className="contact-link "
-              
+              className="contact-link contact-link-primary"
             >
               <span>Email</span>
               <span>sgoh6@uw.edu ↗</span>
@@ -372,15 +371,6 @@ export default function App() {
             >
               <span>Resume</span>
               <span>Download PDF ↗</span>
-            </a>
-            <a 
-              href="https://github.com/samanthaoh"
-              className="contact-link"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span>Github</span>
-              <span>View profile ↗</span>
             </a>
           </div>
         </div>
@@ -438,16 +428,16 @@ function ExperienceCard({
 }) {
   const colors = [
     {
-      bg: "var(--pastel-pink)",
-      ink: "var(--ink-pink)",
+      bg: "var(--accent-light)",
+      ink: "var(--accent)",
     },
     {
-      bg: "var(--pastel-blue)",
-      ink: "var(--ink-blue)",
+      bg: "var(--accent-2-light)",
+      ink: "var(--accent-2)",
     },
     {
-      bg: "var(--pastel-lavender)",
-      ink: "var(--ink-lavender)",
+      bg: "var(--accent-light)",
+      ink: "var(--accent)",
     },
   ]
 

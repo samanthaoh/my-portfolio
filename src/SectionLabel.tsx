@@ -2,8 +2,8 @@
 
 export default function SectionLabel({
   children,
-  pastel = "var(--pastel-lavender)",
-  ink = "var(--ink-lavender)",
+  pastel = "var(--accent-light)",
+  ink = "var(--accent)",
 }: {
   children: string
   pastel?: string
