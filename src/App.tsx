@@ -1,7 +1,15 @@
 import { useEffect, useState } from "react"
 import { projects, experience, skills } from "./data"
+import OutsideOfWork from "./OutsideOfWork"
 
-const navItems = ["about", "experience", "projects", "skills", "contact"]
+const navItems = [
+  { id: "about", label: "about" },
+  { id: "experience", label: "experience" },
+  { id: "side-stage", label: "hobbies" },
+  { id: "projects", label: "projects" },
+  { id: "skills", label: "skills" },
+  { id: "contact", label: "contact" },
+]
 
 const skillColors: Record<string, { bg: string; ink: string }> = {
   lang: {
@@ -47,8 +55,8 @@ export default function App() {
 
           <div className="nav-links">
             {navItems.map((item) => (
-              <a key={item} href={`#${item}`} className="nav-link">
-                {item}
+              <a key={item.id} href={`#${item.id}`} className="nav-link">
+                {item.label}
               </a>
             ))}
           </div>
@@ -68,11 +76,11 @@ export default function App() {
           <div className="mobile-menu">
             {navItems.map((item) => (
               <a
-                key={item}
-                href={`#${item}`}
+                key={item.id}
+                href={`#${item.id}`}
                 onClick={() => setMenuOpen(false)}
               >
-                {item}
+                {item.label}
               </a>
             ))}
           </div>
@@ -216,8 +224,11 @@ export default function App() {
         </div>
       </section>
 
+      {/* OUTSIDE OF WORK */}
+      <OutsideOfWork />
+
       {/* PROJECTS */}
-      <section id="projects" className="section section-soft">
+      <section id="projects" className="section">
         <div className="container">
           <div className="section-heading">
             <div>
@@ -236,12 +247,18 @@ export default function App() {
             </p>
           </div>
 
-          <div className="project-grid">
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+              gap: 20,
+            }}
+          >
             {projects.map((project, index) => (
               <ProjectCard
                 key={project.name}
                 project={project}
-                index={index}
+                delay={index * 0.1 + 0.2}
               />
             ))}
           </div>
@@ -249,7 +266,7 @@ export default function App() {
       </section>
 
       {/* SKILLS */}
-      <section id="skills" className="section">
+      <section id="skills" className="section section-soft">
         <div className="container">
           <span className="section-label label-mint">
             Skills
@@ -330,7 +347,8 @@ export default function App() {
           <div className="contact-links">
             <a
               href="mailto:sgoh6@uw.edu"
-              className="contact-link contact-link-primary"
+              className="contact-link "
+              
             >
               <span>Email</span>
               <span>sgoh6@uw.edu ↗</span>
@@ -455,87 +473,144 @@ function ExperienceCard({
 
 function ProjectCard({
   project,
-  index,
+  delay,
 }: {
   project: (typeof projects)[number]
-  index: number
+  delay: number
 }) {
-  const colors = [
-    {
-      bg: "var(--pastel-lavender)",
-      ink: "var(--ink-lavender)",
-    },
-    {
-      bg: "var(--pastel-mint)",
-      ink: "var(--ink-mint)",
-    },
-    {
-      bg: "var(--pastel-peach)",
-      ink: "var(--ink-peach)",
-    },
-  ]
-
-  const color = colors[index % colors.length]
+  const [hovered, setHovered] = useState(false)
 
   return (
-    <article
-      className="project-card"
-      style={
-        {
-          "--project-bg": color.bg,
-          "--project-ink": color.ink,
-        } as React.CSSProperties
-      }
+    <div
+      className="fade-up"
+      style={{
+        transitionDelay: `${delay}s`,
+        background: hovered ? project.pastel : "var(--bg-card)",
+        border: `1px solid ${hovered ? "transparent" : "var(--border)"}`,
+        borderRadius: 20,
+        padding: "28px 26px",
+        cursor: "pointer",
+        boxShadow: hovered
+          ? "0 12px 32px rgba(0,0,0,0.07)"
+          : "0 1px 4px rgba(26,24,20,0.04)",
+        transition:
+          "background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease",
+        transform: hovered ? "translateY(-4px)" : "translateY(0)",
+      }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
     >
-      <div className="project-number">
-        0{index + 1}
-      </div>
-
-      <div className="project-content">
-        <div className="project-year">
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: 12,
+          marginBottom: 12,
+          flexWrap: "wrap",
+        }}
+      >
+        <h3
+          style={{
+            fontFamily: "'Fraunces', serif",
+            fontWeight: 400,
+            fontSize: 22,
+            color: "var(--text)",
+            letterSpacing: "-0.01em",
+            margin: 0,
+          }}
+        >
+          {project.name}
+        </h3>
+        <span
+          style={{
+            fontFamily: "'Elms Sans', sans-serif",
+            fontSize: 12,
+            color: project.ink,
+            background: project.pastel,
+            padding: "3px 10px",
+            borderRadius: 100,
+            fontWeight: 500,
+          }}
+        >
           {project.year}
-        </div>
-
-        <h3>{project.name}</h3>
-
-        <div className="project-tagline">
-          {project.tagline}
-        </div>
-
-        <p>{project.desc}</p>
-
-        <div className="project-stack">
-          {project.stack.map((technology) => (
-            <span key={technology}>
-              {technology}
-            </span>
-          ))}
-        </div>
-
-        <div className="project-links">
-          <a
-            href={project.github}
-            onClick={(event) => {
-              if (project.github === "#") {
-                event.preventDefault()
-              }
-            }}
-          >
-            GitHub ↗
-          </a>
-
-          <a
-            href={project.demo}
-            onClick={(event) => {
-              if (project.demo === "#") {
-                event.preventDefault()
-              }
-            }}
-          >
-            Demo ↗
-          </a>
-        </div>
+        </span>
       </div>
-    </article>
+
+      <p
+        style={{
+          fontSize: 14,
+          lineHeight: 1.7,
+          color: "var(--muted)",
+          marginBottom: 8,
+        }}
+      >
+        {project.tagline}
+      </p>
+      <p
+        style={{
+          fontSize: 13,
+          lineHeight: 1.65,
+          color: "var(--muted)",
+          marginBottom: 18,
+        }}
+      >
+        {project.desc}
+      </p>
+
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          gap: 8,
+          marginBottom: 20,
+        }}
+      >
+        {project.stack.map((technology) => (
+          <span
+            key={technology}
+            style={{
+              fontFamily: "'Elms Sans', sans-serif",
+              fontSize: 12,
+              color: project.ink,
+              background: hovered ? "rgba(255,255,255,0.55)" : project.pastel,
+              borderRadius: 100,
+              padding: "4px 12px",
+              fontWeight: 500,
+              transition: "background 0.3s",
+            }}
+          >
+            {technology}
+          </span>
+        ))}
+      </div>
+
+      <div style={{ display: "flex", gap: 16 }}>
+        {[
+          ["GitHub ↗", project.github],
+          ["Demo ↗", project.demo],
+        ].map(([label, href]) => (
+          <a
+            key={label}
+            href={href}
+            onClick={(event) => {
+              if (href === "#") event.preventDefault()
+            }}
+            style={{
+              fontFamily: "'Elms Sans', sans-serif",
+              fontSize: 12,
+              letterSpacing: "0.04em",
+              color: "var(--muted)",
+              textDecoration: "none",
+              fontWeight: 500,
+              transition: "color 0.2s",
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.color = project.ink)}
+            onMouseLeave={(e) => (e.currentTarget.style.color = "var(--muted)")}
+          >
+            {label}
+          </a>
+        ))}
+      </div>
+    </div>
   )
 }

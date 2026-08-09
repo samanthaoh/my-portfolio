@@ -11,7 +11,7 @@
 :root {
   --bg: #fdf9f6;
   --bg-card: #ffffff;
-  --bg-section: #f7f2fb;
+  --bg-section: #f5f2ed;
 
   --text: #1a1814;
   --muted: #7a7270;
@@ -924,16 +924,6 @@ a {
   text-align: right;
 }
 
-.contact-link-primary {
-  color: white;
-  border-color: var(--accent);
-  background: var(--accent);
-  box-shadow: 0 10px 25px rgba(196, 103, 138, 0.22);
-}
-
-.contact-link-primary span:first-child {
-  color: rgba(255, 255, 255, 0.72);
-}
 
 /* -------------------------
    FOOTER
