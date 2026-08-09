@@ -114,7 +114,7 @@ export default function App() {
             </a>
 
             <a href="#contact" className="button button-secondary">
-              Let's connect
+              Say hello!
             </a>
           </div>
         </div>
@@ -371,6 +371,15 @@ export default function App() {
             >
               <span>Resume</span>
               <span>Download PDF ↗</span>
+            </a>
+            <a 
+              href="https://github.com/samanthaoh"
+              className="contact-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>Github</span>
+              <span>View profile ↗</span>
             </a>
           </div>
         </div>
