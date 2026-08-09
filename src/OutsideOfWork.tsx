@@ -21,113 +21,115 @@ export default function OutsideOfWork() {
       title: "Outside of Work",
       body:
         "I love going to concerts, some of my recent favorites were Tate McRae and Madison Beer. I also love exploring new coffee and matcha spots, you can usually find me in a café on the weekends. Also, I've recently been trying to get back into reading!",
-      tags: ["Tag One", "Tag Two"],
+      tags: ["Concerts", "Reading", "Café Hopping"],
     },
   ]
 
   return (
     <section
       id="side-stage"
-      style={{ padding: "120px 32px", maxWidth: 1000, margin: "0 auto" }}
+      style={{ padding: "120px 32px", background: "var(--bg-section)"}}
     >
-      <div ref={ref}>
-        <div
-          className={`fade-up ${inView ? "visible" : ""}`}
-          style={{ marginBottom: 48 }}
-        >
-          <SectionLabel pastel="var(--pastel-pink)" ink="var(--ink-pink)">
-            {"Hobbies"}
-          </SectionLabel>
-          <h2
-            style={{
-              fontFamily: "'Fraunces', serif",
-              fontWeight: 300,
-              fontSize: "clamp(32px, 4vw, 48px)",
-              lineHeight: 1.1,
-              letterSpacing: "-0.02em",
-              color: "var(--text)",
-              margin: 0,
-            }}
+      <div style={{ maxWidth: 1000, margin: "0 auto" }}>
+        <div ref={ref}>
+          <div
+            className={`fade-up ${inView ? "visible" : ""}`}
+            style={{ marginBottom: 48 }}
           >
-            Off <em>the clock</em>.
-          </h2>
-        </div>
-
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-            gap: 20,
-          }}
-        >
-          {cards.map((card, i) => (
-            <div
-              key={card.title}
-              className={`fade-up fade-up-delay-${i + 1} ${inView ? "visible" : ""}`}
+            <SectionLabel pastel="var(--pastel-pink)" ink="var(--ink-pink)">
+              {"Hobbies"}
+            </SectionLabel>
+            <h2
               style={{
-                border: "1px solid var(--border)",
-                borderRadius: 20,
-                background: "var(--bg-card)",
-                padding: "28px 26px",
+                fontFamily: "'Fraunces', serif",
+                fontWeight: 300,
+                fontSize: "clamp(32px, 4vw, 48px)",
+                lineHeight: 1.1,
+                letterSpacing: "-0.02em",
+                color: "var(--text)",
+                margin: 0,
               }}
             >
-              <span
+              Off <em>the clock</em>.
+            </h2>
+          </div>
+
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+              gap: 20,
+            }}
+          >
+            {cards.map((card, i) => (
+              <div
+                key={card.title}
+                className={`fade-up fade-up-delay-${i + 1} ${inView ? "visible" : ""}`}
                 style={{
-                  fontFamily: "'Elms Sans', sans-serif",
-                  fontSize: 12,
-                  color: card.ink,
-                  background: card.pastel,
-                  padding: "3px 10px",
-                  borderRadius: 100,
-                  fontWeight: 500,
-                  display: "inline-block",
-                  marginBottom: 14,
+                  border: "1px solid var(--border)",
+                  borderRadius: 20,
+                  background: "var(--bg-card)",
+                  padding: "28px 26px",
                 }}
               >
-                {card.label}
-              </span>
-              <h3
-                style={{
-                  fontFamily: "'Fraunces', serif",
-                  fontWeight: 400,
-                  fontSize: 22,
-                  color: "var(--text)",
-                  margin: "0 0 10px",
-                  letterSpacing: "-0.01em",
-                }}
-              >
-                {card.title}
-              </h3>
-              <p
-                style={{
-                  fontSize: 14,
-                  lineHeight: 1.7,
-                  color: "var(--muted)",
-                  marginBottom: 18,
-                }}
-              >
-                {card.body}
-              </p>
-              <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
-                {card.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    style={{
-                      fontFamily: "'Elms Sans', sans-serif",
-                      fontSize: 12,
-                      padding: "4px 12px",
-                      borderRadius: 100,
-                      background: card.pastel,
-                      color: card.ink,
-                      fontWeight: 500,
-                    }}
-                  >
-                    {tag}
-                  </span>
-                ))}
+                <span
+                  style={{
+                    fontFamily: "'Elms Sans', sans-serif",
+                    fontSize: 12,
+                    color: card.ink,
+                    background: card.pastel,
+                    padding: "3px 10px",
+                    borderRadius: 100,
+                    fontWeight: 500,
+                    display: "inline-block",
+                    marginBottom: 14,
+                  }}
+                >
+                  {card.label}
+                </span>
+                <h3
+                  style={{
+                    fontFamily: "'Fraunces', serif",
+                    fontWeight: 400,
+                    fontSize: 22,
+                    color: "var(--text)",
+                    margin: "0 0 10px",
+                    letterSpacing: "-0.01em",
+                  }}
+                >
+                  {card.title}
+                </h3>
+                <p
+                  style={{
+                    fontSize: 14,
+                    lineHeight: 1.7,
+                    color: "var(--muted)",
+                    marginBottom: 18,
+                  }}
+                >
+                  {card.body}
+                </p>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+                  {card.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      style={{
+                        fontFamily: "'Elms Sans', sans-serif",
+                        fontSize: 12,
+                        padding: "4px 12px",
+                        borderRadius: 100,
+                        background: card.pastel,
+                        color: card.ink,
+                        fontWeight: 500,
+                      }}
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

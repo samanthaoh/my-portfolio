@@ -80,6 +80,7 @@ export const skills = [
   { label: "AWS", cat: "tool" },
   { label: "GitHub", cat: "tool" },
   { label: "Figma", cat: "tool" },
+  { label: "Jira", cat: "tool"},
 ]
 
 export const catPastel: Record<string, string> = {
