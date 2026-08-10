@@ -319,13 +319,13 @@ a {
 
 .hero-title {
   max-width: 850px;
-  margin: 0 0 2rem;
+  margin: 0 auto 2rem;
   font-family: var(--font-display);
   font-size: clamp(4.2rem, 11vw, 8.7rem);
   font-weight: 300;
   line-height: 0.86;
   letter-spacing: -0.05em;
-  justify-content: center;
+  text-align: center;
 }
 
 .hero-description {
