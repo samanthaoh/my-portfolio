@@ -186,7 +186,7 @@ export default function App() {
       <OutsideOfWork />
 
       {/* PROJECTS */}
-      <section id="projects" className="section section-soft">
+      <section id="projects" className="section">
         <div className="container">
           <div className="section-heading">
             <div>
@@ -224,7 +224,7 @@ export default function App() {
       </section>
 
       {/* SKILLS */}
-      <section id="skills" className="section">
+      <section id="skills" className="section section-soft">
         <div className="container">
           <span className="section-label label-accent-2">
             Skills
