@@ -17,7 +17,7 @@ export default function OutsideOfWork() {
       title: "Outside of Work",
       body:
         "I love going to concerts, some of my recent favorites were Tate McRae and Madison Beer. I also love exploring new coffee and matcha spots, you can usually find me in a café on the weekends. Also, I've recently been trying to get back into reading!",
-      tags: ["Tag One", "Tag Two"],
+      tags: ["Concerts", "Café Hopping", "Reading"],
     },
   ]
 

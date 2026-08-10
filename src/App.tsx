@@ -144,7 +144,7 @@ export default function App() {
             <div className="about-details">
               <Detail label="School" value="University of Washington" />
               <Detail label="Degree" value="B.S. Informatics · Data Science" />
-              <Detail label="Focus" value="Agentic AI + Data + UX" />
+              <Detail label="Focus" value="Agentic AI + Data + Product" />
               <Detail label="Graduating" value="June 2029" />
             </div>
           </div>
@@ -497,8 +497,8 @@ function ProjectCard({
 
       <div style={{ display: "flex", gap: 16 }}>
         {[
-          ["GitHub ↗", project.github],
-          ["Demo ↗", project.demo],
+          //["GitHub ↗", project.github],
+          // ["Demo ↗", project.demo],
         ].map(([label, href]) => (
           <a
             key={label}
