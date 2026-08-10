@@ -495,10 +495,10 @@ function ProjectCard({
         ))}
       </div>
 
-      <div style={{ display: "flex", gap: 16 }}>
+      {/* <div style={{ display: "flex", gap: 16 }}>
         {[
-          //["GitHub ↗", project.github],
-          // ["Demo ↗", project.demo],
+          ["GitHub ↗", project.github],
+          ["Demo ↗", project.demo],
         ].map(([label, href]) => (
           <a
             key={label}
@@ -521,7 +521,7 @@ function ProjectCard({
             {label}
           </a>
         ))}
-      </div>
+      </div> */}
     </div>
   )
 }
