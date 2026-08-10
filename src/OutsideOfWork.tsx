@@ -7,8 +7,6 @@ export default function OutsideOfWork() {
   const cards = [
     {
       label: "Leadership",
-      pastel: "var(--accent-light)",
-      ink: "var(--accent)",
       title: "Director of PR, IUGA",
       body:
         "I handle PR for the UW Informatics Undergraduate Association, where I'm building our brand identity and marketing events to a 1,000+ follower community. My goal is to bridge the gap between Informatics students, the broader campus, and career opportunities.",
@@ -16,8 +14,6 @@ export default function OutsideOfWork() {
     },
     {
       label: "Interests",
-      pastel: "var(--accent-2-light)",
-      ink: "var(--accent-2)",
       title: "Outside of Work",
       body:
         "I love going to concerts, some of my recent favorites were Tate McRae and Madison Beer. I also love exploring new coffee and matcha spots, you can usually find me in a café on the weekends. Also, I've recently been trying to get back into reading!",
@@ -35,9 +31,7 @@ export default function OutsideOfWork() {
           className={`fade-up ${inView ? "visible" : ""}`}
           style={{ marginBottom: 48 }}
         >
-          <SectionLabel pastel="var(--accent-light)" ink="var(--accent)">
-            {"Hobbies"}
-          </SectionLabel>
+          <SectionLabel>{"Hobbies"}</SectionLabel>
           <h2
             style={{
               fontFamily: "'Fraunces', serif",
@@ -75,11 +69,10 @@ export default function OutsideOfWork() {
                 style={{
                   fontFamily: "'Elms Sans', sans-serif",
                   fontSize: 12,
-                  color: card.ink,
-                  background: card.pastel,
-                  padding: "3px 10px",
-                  borderRadius: 100,
-                  fontWeight: 500,
+                  fontWeight: 600,
+                  letterSpacing: "0.08em",
+                  color: "var(--muted)",
+                  textTransform: "uppercase",
                   display: "inline-block",
                   marginBottom: 14,
                 }}
@@ -116,9 +109,9 @@ export default function OutsideOfWork() {
                       fontFamily: "'Elms Sans', sans-serif",
                       fontSize: 12,
                       padding: "4px 12px",
-                      borderRadius: 100,
-                      background: card.pastel,
-                      color: card.ink,
+                      borderRadius: 8,
+                      background: "var(--chip-bg)",
+                      color: "var(--chip-text)",
                       fontWeight: 500,
                     }}
                   >

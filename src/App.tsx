@@ -11,24 +11,6 @@ const navItems = [
   { id: "contact", label: "contact" },
 ]
 
-const skillColors: Record<string, { bg: string; ink: string }> = {
-  lang: {
-    bg: "var(--accent-2-light)",
-    ink: "var(--accent-2)",
-  },
-  frame: {
-    bg: "var(--accent-light)",
-    ink: "var(--accent)",
-  },
-  ml: {
-    bg: "var(--accent-2-light)",
-    ink: "var(--accent-2)",
-  },
-  tool: {
-    bg: "var(--accent-light)",
-    ink: "var(--accent)",
-  },
-}
 
 export default function App() {
   const [scrolled, setScrolled] = useState(false)
@@ -160,33 +142,10 @@ export default function App() {
             </div>
 
             <div className="about-details">
-              <Detail
-                label="School"
-                value="University of Washington"
-                bg="var(--accent-light)"
-                ink="var(--accent)"
-              />
-
-              <Detail
-                label="Degree"
-                value="B.S. Informatics · Data Science"
-                bg="var(--accent-2-light)"
-                ink="var(--accent-2)"
-              />
-
-              <Detail
-                label="Focus"
-                value="Agentic AI + Data + UX"
-                bg="var(--accent-light)"
-                ink="var(--accent)"
-              />
-
-              <Detail
-                label="Graduating"
-                value="June 2029"
-                bg="var(--accent-2-light)"
-                ink="var(--accent-2)"
-              />
+              <Detail label="School" value="University of Washington" />
+              <Detail label="Degree" value="B.S. Informatics · Data Science" />
+              <Detail label="Focus" value="Agentic AI + Data + UX" />
+              <Detail label="Graduating" value="June 2029" />
             </div>
           </div>
         </div>
@@ -213,11 +172,10 @@ export default function App() {
           </div>
 
           <div className="experience-list">
-            {experience.map((item, index) => (
+            {experience.map((item) => (
               <ExperienceCard
                 key={item.role}
                 item={item}
-                index={index}
               />
             ))}
           </div>
@@ -296,24 +254,11 @@ export default function App() {
                 <div className="skill-pills">
                   {skills
                     .filter((skill) => skill.cat === category)
-                    .map((skill) => {
-                      const colors = skillColors[skill.cat]
-
-                      return (
-                        <span
-                          key={skill.label}
-                          className="skill-pill"
-                          style={
-                            {
-                              "--skill-bg": colors.bg,
-                              "--skill-ink": colors.ink,
-                            } as React.CSSProperties
-                          }
-                        >
-                          {skill.label}
-                        </span>
-                      )
-                    })}
+                    .map((skill) => (
+                      <span key={skill.label} className="skill-pill">
+                        {skill.label}
+                      </span>
+                    ))}
                 </div>
               </div>
             ))}
@@ -404,24 +349,12 @@ export default function App() {
 function Detail({
   label,
   value,
-  bg,
-  ink,
 }: {
   label: string
   value: string
-  bg: string
-  ink: string
 }) {
   return (
-    <div
-      className="detail-card"
-      style={
-        {
-          "--detail-bg": bg,
-          "--detail-ink": ink,
-        } as React.CSSProperties
-      }
-    >
+    <div className="detail-card">
       <span>{label}</span>
       <strong>{value}</strong>
     </div>
@@ -430,38 +363,11 @@ function Detail({
 
 function ExperienceCard({
   item,
-  index,
 }: {
   item: (typeof experience)[number]
-  index: number
 }) {
-  const colors = [
-    {
-      bg: "var(--accent-light)",
-      ink: "var(--accent)",
-    },
-    {
-      bg: "var(--accent-2-light)",
-      ink: "var(--accent-2)",
-    },
-    {
-      bg: "var(--accent-light)",
-      ink: "var(--accent)",
-    },
-  ]
-
-  const color = colors[index % colors.length]
-
   return (
-    <article
-      className="experience-card"
-      style={
-        {
-          "--experience-bg": color.bg,
-          "--experience-ink": color.ink,
-        } as React.CSSProperties
-      }
-    >
+    <article className="experience-card">
       <div className="experience-date">
         {item.period}
       </div>
@@ -493,8 +399,8 @@ function ProjectCard({
       className="fade-up"
       style={{
         transitionDelay: `${delay}s`,
-        background: hovered ? project.pastel : "var(--bg-card)",
-        border: `1px solid ${hovered ? "transparent" : "var(--border)"}`,
+        background: "var(--bg-card)",
+        border: `1px solid ${hovered ? "var(--accent)" : "var(--border)"}`,
         borderRadius: 20,
         padding: "28px 26px",
         cursor: "pointer",
@@ -502,7 +408,7 @@ function ProjectCard({
           ? "0 12px 32px rgba(0,0,0,0.07)"
           : "0 1px 4px rgba(26,24,20,0.04)",
         transition:
-          "background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease",
+          "border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease",
         transform: hovered ? "translateY(-4px)" : "translateY(0)",
       }}
       onMouseEnter={() => setHovered(true)}
@@ -533,10 +439,8 @@ function ProjectCard({
           style={{
             fontFamily: "'Elms Sans', sans-serif",
             fontSize: 12,
-            color: project.ink,
-            background: project.pastel,
-            padding: "3px 10px",
-            borderRadius: 100,
+            color: "var(--muted)",
+            padding: "3px 0",
             fontWeight: 500,
           }}
         >
@@ -579,12 +483,11 @@ function ProjectCard({
             style={{
               fontFamily: "'Elms Sans', sans-serif",
               fontSize: 12,
-              color: project.ink,
-              background: hovered ? "rgba(255,255,255,0.55)" : project.pastel,
-              borderRadius: 100,
+              color: "var(--chip-text)",
+              background: "var(--chip-bg)",
+              borderRadius: 8,
               padding: "4px 12px",
               fontWeight: 500,
-              transition: "background 0.3s",
             }}
           >
             {technology}
@@ -612,7 +515,7 @@ function ProjectCard({
               fontWeight: 500,
               transition: "color 0.2s",
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.color = project.ink)}
+            onMouseEnter={(e) => (e.currentTarget.style.color = "var(--accent)")}
             onMouseLeave={(e) => (e.currentTarget.style.color = "var(--muted)")}
           >
             {label}

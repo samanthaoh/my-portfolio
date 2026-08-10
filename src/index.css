@@ -23,6 +23,9 @@
   --accent-2-light: #f5e0d3;
 
   --border: rgba(26, 20, 10, 0.09);
+
+  --chip-bg: #f1ede5;
+  --chip-text: #56504a;
 }
 
 * {
@@ -89,23 +92,19 @@ a {
 
 .section-label {
   display: inline-block;
-  padding: 0.35rem 0.8rem;
   margin-bottom: 1.4rem;
-  border-radius: 999px;
   font-size: 0.72rem;
-  font-weight: 500;
-  letter-spacing: 0.1em;
+  font-weight: 600;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
 }
 
 .label-accent {
   color: var(--accent);
-  background: var(--accent-light);
 }
 
 .label-accent-2 {
   color: var(--accent-2);
-  background: var(--accent-2-light);
 }
 
 .section-title {
@@ -507,9 +506,10 @@ a {
   justify-content: space-between;
   gap: 1rem;
   padding: 0.95rem 1.2rem;
-  border-radius: 13px;
-  background: var(--detail-bg);
-  color: var(--detail-ink);
+  border-radius: 10px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text);
 }
 
 .detail-card span {
@@ -559,19 +559,22 @@ a {
   gap: 2rem;
   padding: 1.8rem 2rem;
   border-radius: 17px;
-  background: var(--experience-bg);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
   transition:
     transform 0.25s ease,
-    box-shadow 0.25s ease;
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
 }
 
 .experience-card:hover {
   transform: translateX(5px);
+  border-color: transparent;
   box-shadow: 0 12px 30px rgba(26, 24, 20, 0.06);
 }
 
 .experience-date {
-  color: var(--experience-ink);
+  color: var(--muted);
   font-size: 0.75rem;
   font-weight: 500;
   line-height: 1.5;
@@ -603,7 +606,7 @@ a {
 
 .experience-org {
   margin-bottom: 0.75rem;
-  color: var(--experience-ink);
+  color: var(--accent);
   font-size: 0.83rem;
   font-weight: 500;
 }
@@ -771,9 +774,9 @@ a {
 
 .skill-pill {
   padding: 0.5rem 0.85rem;
-  border-radius: 999px;
-  color: var(--skill-ink);
-  background: var(--skill-bg);
+  border-radius: 8px;
+  color: var(--chip-text);
+  background: var(--chip-bg);
   font-size: 0.78rem;
   font-weight: 500;
   transition:

@@ -2,11 +2,9 @@
 
 export default function SectionLabel({
   children,
-  pastel = "var(--accent-light)",
   ink = "var(--accent)",
 }: {
   children: string
-  pastel?: string
   ink?: string
 }) {
   return (
@@ -14,12 +12,10 @@ export default function SectionLabel({
       style={{
         fontFamily: "'Elms Sans', sans-serif",
         fontSize: 12,
-        letterSpacing: "0.1em",
+        fontWeight: 600,
+        letterSpacing: "0.14em",
         color: ink,
         textTransform: "uppercase",
-        background: pastel,
-        padding: "0.3rem 0.75rem",
-        borderRadius: 100,
         display: "inline-block",
         marginBottom: 24,
       }}
