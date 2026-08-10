@@ -328,23 +328,13 @@ a {
   text-align: center;
 }
 
-.hero-description {
-  max-width: 570px;
-  margin: 0 0 1.5rem;
-  color: var(--muted);
-  font-size: clamp(1rem, 2vw, 1.15rem);
-  line-height: 1.75;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .hero-meta {
   display: flex;
   align-items: center;
   gap: 0.7rem;
   flex-wrap: wrap;
   margin-bottom: 2.4rem;
-  font-size: 0.75rem;
+  font-size: 1.2rem;
   letter-spacing: 0.04em;
   font-weight: bold;
   justify-content: center;

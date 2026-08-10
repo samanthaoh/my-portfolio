@@ -76,11 +76,7 @@ export default function App() {
             Samantha    Oh
           </h1>
 
-          <p className="hero-description fade-up fade-up-3">
-            Informatics student at the University of Washington building
-            thoughtful products and AI systems, from agentic workflows to
-            interfaces people actually enjoy using.
-          </p>
+          
 
           <div className="hero-meta fade-up fade-up-3">
             <span>Informatics @ UW</span>
