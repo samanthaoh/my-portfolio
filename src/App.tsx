@@ -76,7 +76,7 @@ export default function App() {
             Samantha    Oh
           </h1>
 
-          
+
 
           <div className="hero-meta fade-up fade-up-3">
             <span>Informatics @ UW</span>
@@ -129,11 +129,8 @@ export default function App() {
 
             <div className="about-copy">
               <p>
-                I'm Samantha Oh, an Informatics student at UW interested in
-                making AI systems that actually work in the real world. I've
-                built LLM agents at CACI, shipped UI features at NT Concepts,
-                and published research at George Mason. Currently running PR
-                for IUGA and looking for what's next.
+                Hi! I'm Samantha Oh, an Informatics student at UW and originally from the DC area.
+                I'm interested in making AI systems that actually work in the real world.
               </p>
             </div>
 
@@ -281,7 +278,7 @@ export default function App() {
 
             <p className="contact-description">
               Always open to exciting projects, internships,
-              and grabbing coffee (or matcha!) 
+              and grabbing coffee (or matcha!)
             </p>
           </div>
 
@@ -304,7 +301,7 @@ export default function App() {
               <span>View profile ↗</span>
             </a>
 
-            <a 
+            <a
               href="/SamanthaOhResume.pdf"
               className="contact-link"
               target="_blank"
@@ -313,7 +310,7 @@ export default function App() {
               <span>Resume</span>
               <span>Download PDF ↗</span>
             </a>
-            <a 
+            <a
               href="https://github.com/samanthaoh"
               className="contact-link"
               target="_blank"

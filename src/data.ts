@@ -18,12 +18,12 @@ export const projects = [
     year: "2026",
   },
   {
-    name: "GSU Course Redesign",
-    tagline: "Full UX redesign proposal for course registration",
-    desc: "Led requirements gathering and produced a BRD, DFDs, and data dictionary for a university course registration overhaul. Built a Jira backlog with full sprint planning.",
-    stack: ["Jira", "Agile/Scrum", "DFDs", "BRD"],
-    github: "#",
-    demo: "#",
+    name: "GroundworkAI",
+    tagline: "AI-powered road damage detection · DubHacks 2026",
+    desc: "Co-built a tool that detects road and sidewalk damage from street-level imagery. Paired YOLO predictions with an interactive map to help reviewers inspect findings, prioritize repairs, and manage work orders.",
+    stack: ["React", "Python", "YOLO", "FastAPI", "React-Leaflet"],
+    github: "https://github.com/jacheun/DubHacks2026",
+    demo: "https://devpost.com/software/groundwork-ai",
     year: "2026",
   },
 ]
