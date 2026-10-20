@@ -1,148 +1,57 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { projects, experience, skills } from "./data"
 import OutsideOfWork from "./OutsideOfWork"
 
 const navItems = [
-  { id: "about", label: "about" },
-  { id: "experience", label: "experience" },
-  { id: "side-stage", label: "hobbies" },
-  { id: "projects", label: "projects" },
-  { id: "skills", label: "skills" },
-  { id: "contact", label: "contact" },
+  { id: "about", label: "ABOUT" },
+  { id: "experience", label: "EXPERIENCE" },
+  { id: "side-stage", label: "HOBBIES" },
+  { id: "projects", label: "PROJECTS" },
 ]
 
-
 export default function App() {
-  const [scrolled, setScrolled] = useState(false)
-  const [menuOpen, setMenuOpen] = useState(false)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 30)
-    }
-
-    window.addEventListener("scroll", handleScroll)
-
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
-
   return (
     <div className="site">
-      {/* NAV */}
-      <nav className={`nav ${scrolled ? "nav-scrolled" : ""}`}>
-        <div className="container nav-inner">
-          <a href="#top" className="nav-logo">
-            samantha oh
-          </a>
-
-          <div className="nav-links">
+      <div className="portfolio-home" id="top">
+        <header className="home-header">
+          <a href="#top" className="home-name">Samantha Oh</a>
+          <nav className="home-nav" aria-label="Main navigation">
             {navItems.map((item) => (
-              <a key={item.id} href={`#${item.id}`} className="nav-link">
-                {item.label}
-              </a>
+              <a key={item.id} href={`#${item.id}`}>{item.label}</a>
             ))}
+          </nav>
+        </header>
+        <main className="home-grid">
+          <section className="home-intro home-card" aria-labelledby="home-title">
+            <h1 id="home-title">Building AI for <span>Social Good</span> through products.</h1>
+          </section>
+          <section id="about" className="home-bio home-card" aria-label="About Samantha">
+            <p>Hi! I'm Samantha Oh, an Informatics student at UW in Seattle and originally from the DC area.</p>
+          </section>
+          <div className="home-art home-card">
+            <img src="/figma/abstract.png" alt="" />
           </div>
-
-          <button
-            className="mobile-menu-button"
-            onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Toggle navigation"
-          >
-            <span />
-            <span />
-            <span />
-          </button>
-        </div>
-
-        {menuOpen && (
-          <div className="mobile-menu">
-            {navItems.map((item) => (
-              <a
-                key={item.id}
-                href={`#${item.id}`}
-                onClick={() => setMenuOpen(false)}
-              >
-                {item.label}
-              </a>
-            ))}
+          <section className="home-focus home-card" aria-labelledby="focus-title">
+            <h2 id="focus-title">Focuses:</h2>
+            <ul><li>Agentic AI</li><li>Data</li><li>Product</li></ul>
+          </section>
+          <div className="home-portrait home-card">
+            <img src="/figma/portrait.png" alt="Samantha Oh" />
           </div>
-        )}
-      </nav>
-
-      {/* HERO */}
-      <section id="top" className="hero">
-        <div className="container hero-content">
-          <h1 className="hero-title fade-up fade-up-2">
-            Samantha    Oh
-          </h1>
-
-
-
-          <div className="hero-meta fade-up fade-up-3">
-            <span>Informatics @ UW</span>
-            <span>·</span>
-            <span>Agentic AI Engineering</span>
-            <span>·</span>
-            <span>Seattle, WA</span>
-          </div>
-
-          <div className="hero-actions fade-up fade-up-4">
-            <a href="#projects" className="button button-primary">
-              See my work
+          <section id="home-contact" className="home-contact home-card" aria-label="Contact">
+            <a className="home-contact-top" href="mailto:sgoh6@uw.edu">
+              <span>Have some<br />questions?</span>
+              <img src="/figma/arrow.svg" alt="" width="38" height="38" />
             </a>
-
-            <a href="#contact" className="button button-secondary">
-              Say hello!
-            </a>
-          </div>
-        </div>
-
-        <div className="scroll-indicator">
-          <span>scroll</span>
-          <div />
-        </div>
-      </section>
-
-      {/* ABOUT */}
-      <section id="about" className="section section-soft">
-        <div className="container about-grid">
-          <div className="about-image-wrap">
-            <img
-              src="/headshot.jpg"
-              alt="Samantha Oh"
-              className="about-image"
-            />
-
-            <div className="image-accent image-accent-pink" />
-            <div className="image-accent image-accent-lavender" />
-          </div>
-
-          <div>
-            <span className="section-label label-accent">
-              About me
-            </span>
-
-            <h2 className="section-title">
-              Building at the edge of{" "}
-              <em>what AI can do.</em>
-            </h2>
-
-            <div className="about-copy">
-              <p>
-                Hi! I'm Samantha Oh, an Informatics student at UW and originally from the DC area.
-                I'm interested in making AI systems that actually work in the real world.
-              </p>
+            <a className="home-email" href="mailto:sgoh6@uw.edu">sgoh6@uw.edu</a>
+            <div className="home-socials">
+              <a href="https://linkedin.com/in/samantha-oh/" target="_blank" rel="noopener noreferrer">LinkedIn<img src="/figma/social-arrow.svg" alt="" width="29" height="23" /></a>
+              <a href="https://github.com/samanthaoh" target="_blank" rel="noopener noreferrer">GitHub<img src="/figma/social-arrow.svg" alt="" width="29" height="23" /></a>
+              <a href="/SamanthaOhResume.pdf" target="_blank" rel="noopener noreferrer">Resume<img src="/figma/social-arrow.svg" alt="" width="29" height="23" /></a>
             </div>
-
-            <div className="about-details">
-              <Detail label="School" value="University of Washington" />
-              <Detail label="Degree" value="B.S. Informatics · Data Science" />
-              <Detail label="Focus" value="Agentic AI + Data + Product" />
-              <Detail label="Graduating" value="June 2029" />
-            </div>
-          </div>
-        </div>
-      </section>
+          </section>
+        </main>
+      </div>
 
       {/* EXPERIENCE */}
       <section id="experience" className="section">
@@ -259,70 +168,6 @@ export default function App() {
         </div>
       </section>
 
-      {/* CONTACT */}
-      <section id="contact" className="contact-section">
-        <div className="contact-blob contact-blob-one" />
-        <div className="contact-blob contact-blob-two" />
-
-        <div className="container contact-grid">
-          <div>
-            <span className="section-label label-accent">
-              Get in touch
-            </span>
-
-            <h2 className="contact-title">
-              Let's build
-              <br />
-              <em>something cool.</em>
-            </h2>
-
-            <p className="contact-description">
-              Always open to exciting projects, internships,
-              and grabbing coffee (or matcha!)
-            </p>
-          </div>
-
-          <div className="contact-links">
-            <a
-              href="mailto:sgoh6@uw.edu"
-              className="contact-link contact-link-primary"
-            >
-              <span>Email</span>
-              <span>sgoh6@uw.edu ↗</span>
-            </a>
-
-            <a
-              href="https://linkedin.com/in/samantha-oh/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="contact-link"
-            >
-              <span>LinkedIn</span>
-              <span>View profile ↗</span>
-            </a>
-
-            <a
-              href="/SamanthaOhResume.pdf"
-              className="contact-link"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span>Resume</span>
-              <span>Download PDF ↗</span>
-            </a>
-            <a
-              href="https://github.com/samanthaoh"
-              className="contact-link"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span>Github</span>
-              <span>View profile ↗</span>
-            </a>
-          </div>
-        </div>
-      </section>
-
       {/* FOOTER */}
       <footer className="footer">
         <div className="container footer-inner">
@@ -335,21 +180,6 @@ export default function App() {
           </span>
         </div>
       </footer>
-    </div>
-  )
-}
-
-function Detail({
-  label,
-  value,
-}: {
-  label: string
-  value: string
-}) {
-  return (
-    <div className="detail-card">
-      <span>{label}</span>
-      <strong>{value}</strong>
     </div>
   )
 }
