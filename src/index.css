@@ -1242,3 +1242,99 @@ a {
   .home-contact { min-height: 280px; padding: 25px; }
   .home-email { font-size: 36px; }
 }
+
+/* Shared visual language from the Figma home frame. */
+:root {
+  --font-display: '42dot Sans', sans-serif;
+  --font-sans: '42dot Sans', sans-serif;
+  --font-mono: 'Anonymous Pro', monospace;
+  --pastel-green: #84cbac;
+  --pastel-blue: #a6c3f8;
+  --pastel-purple: #cba6f8;
+  --pastel-lilac: #e0c9fb;
+  --text: #000;
+  --muted: #303039;
+  --accent: #000;
+  --accent-2: #000;
+  --chip-bg: rgba(255, 255, 255, .32);
+  --chip-text: #000;
+}
+.home-header { background: var(--pastel-lilac); }
+.home-intro { background: var(--pastel-green); }
+.home-bio, .home-contact { background: var(--pastel-blue); }
+.home-focus { background: var(--pastel-purple); }
+.section { padding: 64px 0; }
+.section-soft { background: var(--bg); }
+.section > .container, .footer > .container {
+  width: calc(100% - 64px);
+  max-width: 1404px;
+}
+.section-heading { align-items: end; gap: 32px; margin-bottom: 28px; }
+.section-label { font: 16px/1.2 var(--font-mono); letter-spacing: 0; color: var(--text); margin-bottom: 18px; }
+.section-title { font-size: clamp(36px, 4vw, 56px); font-weight: 400; letter-spacing: -.025em; line-height: 1.08; }
+.section-title em { font-weight: 700; font-style: normal; }
+.section-heading > p, .skills-intro { font-size: 17px; line-height: 1.6; }
+.experience-list { gap: 18px; }
+.experience-card { background: var(--pastel-blue); border: 0; border-radius: 20px; padding: 36px; grid-template-columns: 190px 1fr; gap: 32px; }
+.experience-card:nth-child(2) { background: var(--pastel-lilac); }
+.experience-card:nth-child(3) { background: var(--pastel-green); }
+.experience-card:hover { transform: none; box-shadow: none; }
+.experience-date { font: 16px/1.5 var(--font-mono); color: var(--text); }
+.experience-content h3 { font-size: 30px; font-weight: 500; letter-spacing: -.02em; margin-bottom: 8px; }
+.experience-org { font: 16px/1.5 var(--font-mono); margin-bottom: 18px; }
+.experience-content p { font-size: 17px; line-height: 1.65; max-width: 900px; }
+.hobby-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.hobby-card { border-radius: 20px; background: var(--pastel-purple); padding: 36px; display: flex; flex-direction: column; }
+.hobby-card:nth-child(2) { background: var(--pastel-green); }
+.hobby-card h3 { font-size: 30px; font-weight: 500; letter-spacing: -.02em; line-height: 1.15; margin: 0 0 20px; }
+.hobby-card p { font-size: 17px; line-height: 1.65; margin: 0 0 28px; color: var(--muted); }
+.hobby-tags, .project-stack { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; }
+.hobby-tags span, .project-stack span, .skill-pill { background: var(--chip-bg); color: var(--text); font: 14px/1.4 var(--font-mono); border-radius: 8px; padding: 6px 12px; }
+.project-grid { gap: 18px; }
+.project-card { display: flex; flex-direction: column; min-height: 400px; padding: 32px; border: 0; background: var(--pastel-green); border-radius: 20px; }
+.project-card:nth-child(2) { background: var(--pastel-lilac); }
+.project-card:nth-child(3) { background: var(--pastel-blue); }
+.project-card:hover { transform: none; background: var(--pastel-green); box-shadow: none; }
+.project-card:nth-child(2):hover { background: var(--pastel-lilac); }
+.project-card:nth-child(3):hover { background: var(--pastel-blue); }
+.project-topline { display: flex; align-items: baseline; flex-wrap: wrap; gap: 12px; margin-bottom: 16px; }
+.project-topline h3 { font-size: 30px; font-weight: 500; line-height: 1.15; letter-spacing: -.02em; margin: 0; }
+.project-year { font: 14px var(--font-mono); color: var(--text); margin: 0; }
+.project-tagline { font-size: 17px; line-height: 1.5; color: var(--text); margin: 0 0 16px; }
+.project-description { font-size: 16px; line-height: 1.65; color: var(--muted); margin: 0 0 28px; }
+.project-stack { margin-bottom: 0; padding-top: 6px; }
+.project-links { gap: 12px 20px; flex-wrap: wrap; margin-top: 24px; }
+.project-links a { font: 15px/1.5 var(--font-mono); color: var(--text); text-underline-offset: 4px; }
+.project-links a:hover { opacity: 1; text-decoration: underline; }
+.skills-intro { margin-top: 20px; max-width: 620px; }
+.skills-by-category { margin-top: 28px; gap: 18px; }
+.skill-category { padding: 32px; border: 0; border-radius: 20px; background: var(--pastel-lilac); }
+.skill-category:nth-child(2) { background: var(--pastel-blue); }
+.skill-category:nth-child(3) { background: var(--pastel-green); }
+.skill-category:nth-child(4) { background: var(--pastel-purple); }
+.skill-category-title { font: 18px var(--font-mono); color: var(--text); letter-spacing: 0; margin-bottom: 24px; }
+.skill-pill:hover { transform: none; box-shadow: none; }
+.footer { border: 0; padding: 0 0 24px; }
+.footer-inner { background: var(--pastel-lilac); border-radius: 20px; padding: 28px 30px; }
+.footer-name { font: 25px var(--font-mono); }
+.footer-copy { font: 14px/1.5 var(--font-mono); color: var(--text); opacity: 1; }
+.site a:focus-visible { outline: 2px solid var(--text); outline-offset: 5px; border-radius: 3px; }
+@media (max-width: 1050px) {
+  .project-grid { grid-template-columns: 1fr; }
+  .project-card { min-height: 0; }
+}
+@media (max-width: 700px) {
+  .section { padding: 36px 0; }
+  .section > .container, .footer > .container { width: calc(100% - 44px); }
+  .section-heading { display: block; }
+  .section-heading > p { margin-top: 20px; }
+  .experience-card { grid-template-columns: 1fr; padding: 26px; gap: 18px; }
+  .experience-content h3, .hobby-card h3, .project-topline h3 { font-size: 26px; }
+  .hobby-grid, .skills-by-category { grid-template-columns: 1fr; }
+  .hobby-card, .project-card, .skill-category { padding: 26px; }
+  .footer-inner { align-items: flex-start; padding: 24px; gap: 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .fade-up { animation: none; opacity: 1; transform: none; }
+}

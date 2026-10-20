@@ -23,7 +23,9 @@ export const projects = [
     desc: "Co-built a tool that detects road and sidewalk damage from street-level imagery. Paired YOLO predictions with an interactive map to help reviewers inspect findings, prioritize repairs, and manage work orders.",
     stack: ["React", "Python", "YOLO", "FastAPI", "React-Leaflet"],
     github: "https://github.com/jacheun/DubHacks2026",
-    demo: "https://devpost.com/software/groundwork-ai",
+    demo: "https://ground-work-ai.vercel.app/",
+    devpost: "https://devpost.com/software/groundwork-ai",
+    video: "https://youtu.be/Ywb3-EA2uNw",
     year: "2026",
   },
 ]

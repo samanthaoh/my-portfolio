@@ -1,4 +1,3 @@
-import { useState } from "react"
 import { projects, experience, skills } from "./data"
 import OutsideOfWork from "./OutsideOfWork"
 
@@ -67,10 +66,6 @@ export default function App() {
               </h2>
             </div>
 
-            <p>
-              A mix of software engineering, AI research, and building
-              systems that solve practical problems.
-            </p>
           </div>
 
           <div className="experience-list">
@@ -101,24 +96,13 @@ export default function App() {
               </h2>
             </div>
 
-            <p>
-              Projects where engineering, data, product thinking, and user
-              experience overlap.
-            </p>
           </div>
 
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-              gap: 20,
-            }}
-          >
-            {projects.map((project, index) => (
+          <div className="project-grid">
+            {projects.map((project) => (
               <ProjectCard
                 key={project.name}
                 project={project}
-                delay={index * 0.1 + 0.2}
               />
             ))}
           </div>
@@ -136,10 +120,6 @@ export default function App() {
             What I work <em>with.</em>
           </h2>
 
-          <div className="skills-intro">
-            Technical tools I've used across coursework, internships,
-            research, and personal projects.
-          </div>
 
           <div className="skills-by-category">
             {[
@@ -208,143 +188,32 @@ function ExperienceCard({
   )
 }
 
-function ProjectCard({
-  project,
-  delay,
-}: {
-  project: (typeof projects)[number]
-  delay: number
-}) {
-  const [hovered, setHovered] = useState(false)
+function ProjectCard({ project }: { project: (typeof projects)[number] }) {
+  const links = [
+    ["Website ↗", project.demo],
+    ["Demo ↗", "video" in project ? project.video : undefined],
+    ["Devpost ↗", "devpost" in project ? project.devpost : undefined],
+    ["GitHub ↗", project.github],
+  ].filter(([, href]) => href && href !== "#")
 
   return (
-    <div
-      className="fade-up"
-      style={{
-        transitionDelay: `${delay}s`,
-        background: "var(--bg-card)",
-        border: `1px solid ${hovered ? "var(--accent)" : "var(--border)"}`,
-        borderRadius: 20,
-        padding: "28px 26px",
-        cursor: "pointer",
-        boxShadow: hovered
-          ? "0 12px 32px rgba(0,0,0,0.07)"
-          : "0 1px 4px rgba(26,24,20,0.04)",
-        transition:
-          "border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease",
-        transform: hovered ? "translateY(-4px)" : "translateY(0)",
-      }}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-    >
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: 12,
-          marginBottom: 12,
-          flexWrap: "wrap",
-        }}
-      >
-        <h3
-          style={{
-            fontFamily: "'Fraunces', serif",
-            fontWeight: 400,
-            fontSize: 22,
-            color: "var(--text)",
-            letterSpacing: "-0.01em",
-            margin: 0,
-          }}
-        >
-          {project.name}
-        </h3>
-        <span
-          style={{
-            fontFamily: "'Elms Sans', sans-serif",
-            fontSize: 12,
-            color: "var(--muted)",
-            padding: "3px 0",
-            fontWeight: 500,
-          }}
-        >
-          {project.year}
-        </span>
+    <article className="project-card">
+      <div className="project-topline">
+        <h3>{project.name}</h3>
+        <span className="project-year">{project.year}</span>
       </div>
-
-      <p
-        style={{
-          fontSize: 14,
-          lineHeight: 1.7,
-          color: "var(--muted)",
-          marginBottom: 8,
-        }}
-      >
-        {project.tagline}
-      </p>
-      <p
-        style={{
-          fontSize: 13,
-          lineHeight: 1.65,
-          color: "var(--muted)",
-          marginBottom: 18,
-        }}
-      >
-        {project.desc}
-      </p>
-
-      <div
-        style={{
-          display: "flex",
-          flexWrap: "wrap",
-          gap: 8,
-          marginBottom: 20,
-        }}
-      >
-        {project.stack.map((technology) => (
-          <span
-            key={technology}
-            style={{
-              fontFamily: "'Elms Sans', sans-serif",
-              fontSize: 12,
-              color: "var(--chip-text)",
-              background: "var(--chip-bg)",
-              borderRadius: 8,
-              padding: "4px 12px",
-              fontWeight: 500,
-            }}
-          >
-            {technology}
-          </span>
-        ))}
+      <p className="project-tagline">{project.tagline}</p>
+      <p className="project-description">{project.desc}</p>
+      <div className="project-stack">
+        {project.stack.map((technology) => <span key={technology}>{technology}</span>)}
       </div>
-
-      {/* <div style={{ display: "flex", gap: 16 }}>
-        {[
-          ["GitHub ↗", project.github],
-          ["Demo ↗", project.demo],
-        ].map(([label, href]) => (
-          <a
-            key={label}
-            href={href}
-            onClick={(event) => {
-              if (href === "#") event.preventDefault()
-            }}
-            style={{
-              fontFamily: "'Elms Sans', sans-serif",
-              fontSize: 12,
-              letterSpacing: "0.04em",
-              color: "var(--muted)",
-              textDecoration: "none",
-              fontWeight: 500,
-              transition: "color 0.2s",
-            }}
-            onMouseEnter={(e) => (e.currentTarget.style.color = "var(--accent)")}
-            onMouseLeave={(e) => (e.currentTarget.style.color = "var(--muted)")}
-          >
-            {label}
-          </a>
-        ))}
-      </div> */}
-    </div>
+      {links.length > 0 && (
+        <div className="project-links">
+          {links.map(([label, href]) => (
+            <a key={label} href={href} target="_blank" rel="noopener noreferrer">{label}</a>
+          ))}
+        </div>
+      )}
+    </article>
   )
 }
