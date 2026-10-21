@@ -1,20 +1,67 @@
-import { useId, useState } from "react"
+import { useEffect, useId, useRef, useState } from "react"
+import { createPortal } from "react-dom"
 
 export default function Butterfly() {
   const id = useId()
   const [paused, setPaused] = useState(false)
+  const [flying, setFlying] = useState(false)
+  const flyerRef = useRef<HTMLButtonElement>(null)
+  const releaseRef = useRef<HTMLButtonElement>(null)
+  const origin = useRef({ x: 0, y: 0 })
+
+  useEffect(() => {
+    if (!flying) return
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    const position = { ...origin.current }
+    let target = { x: window.innerWidth * .7, y: window.innerHeight * .35 }
+    let lastMove = performance.now()
+    let frame = 0
+    let previous = performance.now()
+    const clamp = (n: number, max: number) => Math.max(60, Math.min(max - 60, n))
+    const move = (event: PointerEvent) => {
+      target = { x: event.clientX + 70, y: event.clientY - 55 }
+      lastMove = performance.now()
+    }
+    const returnHome = () => {
+      setFlying(false)
+      releaseRef.current?.focus({ preventScroll: true })
+    }
+    const key = (event: KeyboardEvent) => { if (event.key === "Escape") returnHome() }
+    const animate = (now: number) => {
+      const elapsed = Math.min(now - previous, 64)
+      previous = now
+      const ease = reduced ? 1 : 1 - Math.exp(-elapsed / 380)
+      const idle = now - lastMove > 1800
+      const x = clamp(target.x, window.innerWidth)
+      const y = clamp(target.y, window.innerHeight)
+      position.x += (x - position.x) * ease
+      position.y += (y - position.y) * ease
+      if (flyerRef.current) {
+        const bob = reduced || idle ? 0 : Math.sin(now / 330) * 8
+        flyerRef.current.style.transform = `translate3d(${position.x - 60}px, ${position.y - 60 + bob}px, 0)`
+        flyerRef.current.classList.toggle("butterfly-perched", idle)
+      }
+      frame = requestAnimationFrame(animate)
+    }
+    window.addEventListener("pointermove", move)
+    window.addEventListener("keydown", key)
+    frame = requestAnimationFrame(animate)
+    return () => {
+      cancelAnimationFrame(frame)
+      window.removeEventListener("pointermove", move)
+      window.removeEventListener("keydown", key)
+    }
+  }, [flying])
+
+  const release = () => {
+    const box = releaseRef.current?.parentElement?.getBoundingClientRect()
+    if (box) origin.current = { x: box.left + box.width / 2, y: box.top + box.height / 2 }
+    setPaused(false)
+    setFlying(true)
+  }
   const wing = `${id}-wing`
   const glow = `${id}-glow`
-
-  return (
-    <button
-      type="button"
-      className={`butterfly-scene${paused ? " butterfly-paused" : ""}`}
-      onClick={() => setPaused((value) => !value)}
-      aria-label={paused ? "Resume butterfly animation" : "Pause butterfly animation"}
-      aria-pressed={paused}
-    >
-      <div className="butterfly-halo" />
+  const artwork = (
       <svg className="butterfly" viewBox="0 0 448 455" aria-hidden="true">
         <defs>
           <radialGradient id={wing} cx="70%" cy="65%" r="85%">
@@ -51,6 +98,34 @@ export default function Butterfly() {
           <path d="M223 220V259" stroke="#c59ee2" strokeWidth="2" strokeLinecap="round" opacity=".65" />
         </g>
       </svg>
-    </button>
+  )
+
+  return (
+    <div className="butterfly-scene">
+      <div className="butterfly-halo" />
+      {!flying && (
+        <button
+          type="button"
+          className={`butterfly-home-button${paused ? " butterfly-paused" : ""}`}
+          onClick={() => setPaused((value) => !value)}
+          aria-label={paused ? "Resume butterfly animation" : "Pause butterfly animation"}
+          aria-pressed={paused}
+        >{artwork}</button>
+      )}
+      <button ref={releaseRef} className="butterfly-release" type="button" onClick={flying ? () => setFlying(false) : release}>
+        {flying ? "Bring it home!" : "Set it free!"}
+      </button>
+      {flying && createPortal(
+        <button
+          ref={flyerRef}
+          type="button"
+          className="butterfly-flyer"
+          onClick={() => { setFlying(false); releaseRef.current?.focus({ preventScroll: true }) }}
+          aria-label="Bring butterfly home (or press Escape)"
+          autoFocus
+        >{artwork}</button>,
+        document.body,
+      )}
+    </div>
   )
 }

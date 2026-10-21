@@ -22,7 +22,7 @@ export default function OutsideOfWork() {
   ]
 
   return (
-    <section id="side-stage" className="section section-soft">
+    <section id="hobbies" className="section section-soft">
       <div className="container" ref={ref}>
         <div className={`section-heading fade-up ${inView ? "visible" : ""}`}>
           <div>

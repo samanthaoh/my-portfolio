@@ -5,8 +5,9 @@ import Butterfly from "./Butterfly"
 const navItems = [
   { id: "about", label: "ABOUT" },
   { id: "experience", label: "EXPERIENCE" },
-  { id: "side-stage", label: "HOBBIES" },
+  { id: "hobbies", label: "HOBBIES" },
   { id: "projects", label: "PROJECTS" },
+  { id: "skills", label: "SKILLS" },
 ]
 
 export default function App() {
