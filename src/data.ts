@@ -35,7 +35,7 @@ export const experience = [
     role: "Agentic AI Engineering Intern",
     org: "CACI International Inc. · Chantilly, VA",
     period: "Jun 2026 — Aug 2026",
-    desc: "Built LLM-powered agents in Python using the Agno framework and packaged via Docker containerization to automate government contract analysis. Designed custom MCP tools and RAG pipelines backed by a vector knowledge base — cutting contract review time from days to 1–2 hours.",
+    desc: "Built LLM-powered agents in Python using the Agno framework and packaged via Docker containerization to automate government contract analysis. Designed custom MCP tools and RAG pipelines backed by a vector knowledge base — cutting contract review time from days to 1–2 hours. Also designed UX frameworks for chat interfaces.",
   },
   {
     role: "Information Systems Researcher",

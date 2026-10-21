@@ -1191,7 +1191,7 @@ a {
 .home-intro { grid-column: 1; grid-row: 1 / 526; background: #84cbac; display: flex; align-items: center; padding: 27px; }
 .home-intro h1 { margin: 37px 0 0; max-width: 511px; font-size: clamp(30px, 3.836vw, 56px); font-weight: 700; line-height: 1; letter-spacing: 0; }
 .home-intro h1 span { font-weight: 400; }
-.home-bio { grid-column: 2; grid-row: 19 / 332; background: #a6c3f8; display: flex; align-items: center; padding: 22px; }
+.home-bio { grid-column: 2; grid-row: 1 / 332; background: #a6c3f8; display: flex; align-items: center; padding: 22px; }
 .home-bio p { margin: 0; font-size: clamp(18px, 1.713vw, 25px); font-weight: 500; line-height: 1.25; }
 .home-art { grid-column: 3; grid-row: 1 / 456; }
 .home-art img { display: block; width: 100%; height: 100%; object-fit: cover; }
