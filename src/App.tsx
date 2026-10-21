@@ -1,5 +1,6 @@
-import { projects, experience, skills } from "./data"
+import { projects, experience, skills, catLabels } from "./data"
 import OutsideOfWork from "./OutsideOfWork"
+import Butterfly from "./Butterfly"
 
 const navItems = [
   { id: "about", label: "ABOUT" },
@@ -28,7 +29,7 @@ export default function App() {
             <p>Hi! I'm Samantha Oh, an Informatics student at UW in Seattle and originally from the DC area.</p>
           </section>
           <div className="home-art home-card">
-            <img src="/figma/abstract.png" alt="" />
+            <Butterfly />
           </div>
           <section className="home-focus home-card" aria-labelledby="focus-title">
             <h2 id="focus-title">Focuses:</h2>
@@ -122,12 +123,7 @@ export default function App() {
 
 
           <div className="skills-by-category">
-            {[
-              ["lang", "Languages"],
-              ["frame", "Frameworks"],
-              ["ml", "ML / AI"],
-              ["tool", "Tools"],
-            ].map(([category, label]) => (
+            {Object.entries(catLabels).map(([category, label]) => (
               <div key={category} className="skill-category">
                 <div className="skill-category-title">
                   {label}

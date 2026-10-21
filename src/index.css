@@ -1205,7 +1205,7 @@ a {
 .home-contact-top img, .home-socials img { flex-shrink: 0; }
 .home-email { display: block; margin: 25px -7px 16px; font-size: clamp(24px, 3.767vw, 55px); font-weight: 500; line-height: 1.2; white-space: nowrap; }
 .home-socials { display: flex; flex-direction: column; gap: 7px; font: 15px 'Anonymous Pro', monospace; }
-.home-socials a { display: flex; align-items: center; gap: 14px; width: fit-content; }
+.home-socials a { display: flex; align-items: center; gap: 14px; width: fit-content; line-height: 23px; }
 .portfolio-home a:focus-visible { outline: 2px solid #000; outline-offset: 5px; border-radius: 3px; }
 @media (max-width: 1000px) {
   .home-grid { grid-template-rows: repeat(826, .8px); }
@@ -1337,4 +1337,60 @@ a {
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .fade-up { animation: none; opacity: 1; transform: none; }
+}
+
+.butterfly-scene {
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 180px;
+  display: grid;
+  place-items: center;
+  isolation: isolate;
+  background: radial-gradient(ellipse at 48% 45%, #f5eaff 0%, #e2caf7 52%, #cba6f8 100%);
+}
+.butterfly-halo {
+  position: absolute;
+  width: 65%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #faf1ff;
+  opacity: .55;
+  filter: blur(32px);
+  z-index: -1;
+}
+.butterfly {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  filter: drop-shadow(0 16px 12px rgba(86, 42, 126, .18));
+  animation: butterfly-hover 5s ease-in-out infinite;
+}
+.butterfly-wing {
+  transform-box: view-box;
+  transform-origin: 224px 235px;
+  animation: butterfly-flap 2.4s cubic-bezier(.45, 0, .55, 1) infinite;
+}
+@keyframes butterfly-flap {
+  0%, 100% { transform: scaleX(1); }
+  50% { transform: scaleX(.22); }
+}
+.butterfly-paused .butterfly, .butterfly-paused .butterfly-wing {
+  animation-play-state: paused;
+}
+.butterfly-scene:focus-visible {
+  outline: 3px solid #60348c;
+  outline-offset: -6px;
+  border-radius: 20px;
+}
+@keyframes butterfly-hover {
+  0%, 100% { transform: translateY(5px) rotate(-3deg); }
+  50% { transform: translateY(-9px) rotate(2deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .butterfly, .butterfly-wing { animation: none; }
 }
