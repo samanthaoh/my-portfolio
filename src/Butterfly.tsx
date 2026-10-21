@@ -13,15 +13,10 @@ export default function Butterfly() {
     if (!flying) return
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches
     const position = { ...origin.current }
-    let target = { x: window.innerWidth * .7, y: window.innerHeight * .35 }
-    let lastMove = performance.now()
     let frame = 0
-    let previous = performance.now()
+    const started = performance.now()
+    let previous = started
     const clamp = (n: number, max: number) => Math.max(60, Math.min(max - 60, n))
-    const move = (event: PointerEvent) => {
-      target = { x: event.clientX + 70, y: event.clientY - 55 }
-      lastMove = performance.now()
-    }
     const returnHome = () => {
       setFlying(false)
       releaseRef.current?.focus({ preventScroll: true })
@@ -30,25 +25,22 @@ export default function Butterfly() {
     const animate = (now: number) => {
       const elapsed = Math.min(now - previous, 64)
       previous = now
-      const ease = reduced ? 1 : 1 - Math.exp(-elapsed / 380)
-      const idle = now - lastMove > 1800
-      const x = clamp(target.x, window.innerWidth)
-      const y = clamp(target.y, window.innerHeight)
+      const ease = reduced ? 1 : 1 - Math.exp(-elapsed / 600)
+      const time = (now - started) / 1000
+      const x = clamp(reduced ? origin.current.x : window.innerWidth * (.5 + .35 * Math.sin(time * .25)), window.innerWidth)
+      const y = clamp(reduced ? origin.current.y : window.innerHeight * (.5 + .3 * Math.sin(time * .4 + 1)), window.innerHeight)
       position.x += (x - position.x) * ease
       position.y += (y - position.y) * ease
       if (flyerRef.current) {
-        const bob = reduced || idle ? 0 : Math.sin(now / 330) * 8
+        const bob = reduced ? 0 : Math.sin(now / 330) * 8
         flyerRef.current.style.transform = `translate3d(${position.x - 60}px, ${position.y - 60 + bob}px, 0)`
-        flyerRef.current.classList.toggle("butterfly-perched", idle)
       }
       frame = requestAnimationFrame(animate)
     }
-    window.addEventListener("pointermove", move)
     window.addEventListener("keydown", key)
     frame = requestAnimationFrame(animate)
     return () => {
       cancelAnimationFrame(frame)
-      window.removeEventListener("pointermove", move)
       window.removeEventListener("keydown", key)
     }
   }, [flying])
