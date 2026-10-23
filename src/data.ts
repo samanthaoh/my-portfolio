@@ -20,7 +20,7 @@ export const projects = [
   {
     name: "GroundworkAI",
     tagline: "AI-powered road damage detection · DubHacks 2026",
-    desc: "Co-built a tool that detects road and sidewalk damage from street-level imagery. Paired YOLO predictions with an interactive map to help reviewers inspect findings, prioritize repairs, and manage work orders.",
+    desc: "Built a React and FastAPI app with an interactive React Leaflet map. Integrated Mapillary’s API to retrieve street-level imagery within the map’s bounds and fine-tuned YOLO11 on the US subset of RDD2022 to detect potholes and road cracks. Mapped detections to help reviewers inspect damage and prioritize repairs.",
     stack: ["React", "Python", "YOLO", "FastAPI", "React-Leaflet"],
     github: "https://github.com/jacheun/DubHacks2026",
     demo: "https://ground-work-ai.vercel.app/",
