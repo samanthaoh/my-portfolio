@@ -1,5 +1,6 @@
 import { useEffect, useId, useRef, useState } from "react"
 import { createPortal } from "react-dom"
+import type { PointerEvent } from "react"
 
 export default function Butterfly() {
   const id = useId()
@@ -8,16 +9,61 @@ export default function Butterfly() {
   const flyerRef = useRef<HTMLButtonElement>(null)
   const releaseRef = useRef<HTMLButtonElement>(null)
   const origin = useRef({ x: 0, y: 0 })
+  const position = useRef({ x: 0, y: 0 })
+  const drag = useRef<{ pointerId: number; x: number; y: number; offsetX: number; offsetY: number; moved: boolean } | null>(null)
+  const suppressClick = useRef(false)
+
+  const capture = () => {
+    drag.current = null
+    setFlying(false)
+    releaseRef.current?.focus({ preventScroll: true })
+  }
+  const clamp = (value: number, size: number) => {
+    const inset = Math.min(60, size / 2)
+    return Math.max(inset, Math.min(size - inset, value))
+  }
+  const paint = () => {
+    if (flyerRef.current) {
+      flyerRef.current.style.transform = `translate3d(${position.current.x - 60}px, ${position.current.y - 60}px, 0)`
+    }
+  }
+  const startDrag = (event: PointerEvent<HTMLButtonElement>) => {
+    if (!event.isPrimary || event.button !== 0) return
+    suppressClick.current = false
+    drag.current = {
+      pointerId: event.pointerId, x: event.clientX, y: event.clientY,
+      offsetX: event.clientX - position.current.x,
+      offsetY: event.clientY - position.current.y, moved: false,
+    }
+    event.currentTarget.setPointerCapture(event.pointerId)
+  }
+  const moveDrag = (event: PointerEvent<HTMLButtonElement>) => {
+    const active = drag.current
+    if (!active || active.pointerId !== event.pointerId) return
+    if (Math.hypot(event.clientX - active.x, event.clientY - active.y) > 5) active.moved = true
+    if (!active.moved) return
+    position.current = {
+      x: clamp(event.clientX - active.offsetX, window.innerWidth),
+      y: clamp(event.clientY - active.offsetY, window.innerHeight),
+    }
+    paint()
+  }
+  const endDrag = (event: PointerEvent<HTMLButtonElement>) => {
+    const active = drag.current
+    if (!active || active.pointerId !== event.pointerId) return
+    suppressClick.current = active.moved || event.type === "pointercancel"
+    drag.current = null
+    if (event.currentTarget.hasPointerCapture(event.pointerId)) event.currentTarget.releasePointerCapture(event.pointerId)
+  }
 
   useEffect(() => {
     if (!flying) return
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches
-    const position = { ...origin.current }
     let frame = 0
     const started = performance.now()
     let previous = started
-    const clamp = (n: number, max: number) => Math.max(60, Math.min(max - 60, n))
     const returnHome = () => {
+      drag.current = null
       setFlying(false)
       releaseRef.current?.focus({ preventScroll: true })
     }
@@ -27,13 +73,14 @@ export default function Butterfly() {
       previous = now
       const ease = reduced ? 1 : 1 - Math.exp(-elapsed / 600)
       const time = (now - started) / 1000
-      const x = clamp(reduced ? origin.current.x : window.innerWidth * (.5 + .35 * Math.sin(time * .25)), window.innerWidth)
-      const y = clamp(reduced ? origin.current.y : window.innerHeight * (.5 + .3 * Math.sin(time * .4 + 1)), window.innerHeight)
-      position.x += (x - position.x) * ease
-      position.y += (y - position.y) * ease
-      if (flyerRef.current) {
-        const bob = reduced ? 0 : Math.sin(now / 330) * 8
-        flyerRef.current.style.transform = `translate3d(${position.x - 60}px, ${position.y - 60 + bob}px, 0)`
+      if (!drag.current) {
+        const x = clamp(reduced ? position.current.x : window.innerWidth * (.5 + .35 * Math.sin(time * .25)), window.innerWidth)
+        const y = clamp(reduced ? position.current.y : window.innerHeight * (.5 + .3 * Math.sin(time * .4 + 1)), window.innerHeight)
+        position.current.x += (x - position.current.x) * ease
+        position.current.y += (y - position.current.y) * ease
+        if (flyerRef.current) {
+          flyerRef.current.style.transform = `translate3d(${position.current.x - 60}px, ${position.current.y - 60}px, 0)`
+        }
       }
       frame = requestAnimationFrame(animate)
     }
@@ -48,6 +95,9 @@ export default function Butterfly() {
   const release = () => {
     const box = releaseRef.current?.parentElement?.getBoundingClientRect()
     if (box) origin.current = { x: box.left + box.width / 2, y: box.top + box.height / 2 }
+    position.current = { ...origin.current }
+    drag.current = null
+    suppressClick.current = false
     setPaused(false)
     setFlying(true)
   }
@@ -104,7 +154,7 @@ export default function Butterfly() {
           aria-pressed={paused}
         >{artwork}</button>
       )}
-      <button ref={releaseRef} className="butterfly-release" type="button" onClick={flying ? () => setFlying(false) : release}>
+      <button ref={releaseRef} className="butterfly-release" type="button" onClick={flying ? capture : release}>
         {flying ? "Bring it home!" : "Set it free!"}
       </button>
       {flying && createPortal(
@@ -112,8 +162,17 @@ export default function Butterfly() {
           ref={flyerRef}
           type="button"
           className="butterfly-flyer"
-          onClick={() => { setFlying(false); releaseRef.current?.focus({ preventScroll: true }) }}
-          aria-label="Bring butterfly home (or press Escape)"
+          onPointerDown={startDrag}
+          onPointerMove={moveDrag}
+          onPointerUp={endDrag}
+          onPointerCancel={endDrag}
+          onLostPointerCapture={endDrag}
+          onDragStart={(event) => event.preventDefault()}
+          onClick={(event) => {
+            if (event.detail !== 0 && suppressClick.current) return
+            capture()
+          }}
+          aria-label="Drag butterfly to move it, or click to capture it. Press Escape to bring it home."
           autoFocus
         >{artwork}</button>,
         document.body,

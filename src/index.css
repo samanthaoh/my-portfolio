@@ -1528,3 +1528,6 @@ a {
   height: 53.625%;
   margin: 0 auto;
 }
+
+.butterfly-flyer { touch-action: none; cursor: grab; user-select: none; }
+.butterfly-flyer:active { cursor: grabbing; }
