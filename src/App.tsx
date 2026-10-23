@@ -1,6 +1,7 @@
 import { projects, experience, skills, catLabels } from "./data"
 import OutsideOfWork from "./OutsideOfWork"
 import Butterfly from "./Butterfly"
+import ProjectPreview from "./ProjectPreview"
 
 const navItems = [
   { id: "about", label: "ABOUT" },
@@ -195,6 +196,8 @@ function ProjectCard({ project }: { project: (typeof projects)[number] }) {
 
   return (
     <article className="project-card">
+      <ProjectPreview name={project.name} />
+      <div className="project-copy">
       <div className="project-topline">
         <h3>{project.name}</h3>
         <span className="project-year">{project.year}</span>
@@ -211,6 +214,7 @@ function ProjectCard({ project }: { project: (typeof projects)[number] }) {
           ))}
         </div>
       )}
+      </div>
     </article>
   )
 }
