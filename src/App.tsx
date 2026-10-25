@@ -16,7 +16,7 @@ export default function App() {
     <div className="site">
       <div className="portfolio-home" id="top">
         <header className="home-header">
-          <a href="#top" className="home-name">Samantha Oh</a>
+          <a href="#top" className="home-name" aria-label="Samantha Oh, back to top"><img src="/favicon.svg" alt="" width="48" height="48" /></a>
           <nav className="home-nav" aria-label="Main navigation">
             {navItems.map((item) => (
               <a key={item.id} href={`#${item.id}`}>{item.label}</a>
