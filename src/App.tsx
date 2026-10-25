@@ -16,42 +16,34 @@ export default function App() {
     <div className="site">
       <div className="portfolio-home" id="top">
         <header className="home-header">
-          <a href="#top" className="home-name">Samantha Oh</a>
+          <a href="#top" className="home-name" aria-label="Samantha Oh, back to top"><img src="/favicon.svg" alt="" width="48" height="48" /></a>
           <nav className="home-nav" aria-label="Main navigation">
-            {navItems.map((item) => (
-              <a key={item.id} href={`#${item.id}`}>{item.label}</a>
-            ))}
+            {navItems.map((item) => <a key={item.id} href={`#${item.id}`}>{item.label}</a>)}
           </nav>
         </header>
-        <main className="home-grid">
-          <section className="home-intro home-card" aria-labelledby="home-title">
-            <h1 id="home-title">Building AI for <span>Social Good</span> through products.</h1>
-          </section>
-          <section id="about" className="home-bio home-card" aria-label="About Samantha">
-            <p>Hi! I'm Samantha Oh, an Informatics student at UW in Seattle and originally from the DC area.</p>
-          </section>
-          <div className="home-art home-card">
-            <Butterfly />
-          </div>
-          <section className="home-focus home-card" aria-labelledby="focus-title">
-            <h2 id="focus-title">Focuses:</h2>
-            <ul><li>Agentic AI</li><li>Data</li><li>Product</li></ul>
-          </section>
-          <div className="home-portrait home-card">
-            <img src="/figma/portrait.png" alt="Samantha Oh" />
-          </div>
-          <section id="home-contact" className="home-contact home-card" aria-label="Contact">
-            <a className="home-contact-top" href="mailto:sgoh6@uw.edu">
-              <span>Have some<br />questions?</span>
-              <img src="/figma/arrow.svg" alt="" width="38" height="38" />
-            </a>
-            <a className="home-email" href="mailto:sgoh6@uw.edu">sgoh6@uw.edu</a>
-            <div className="home-socials">
-              <a href="https://linkedin.com/in/samantha-oh/" target="_blank" rel="noopener noreferrer">LinkedIn<img src="/figma/social-arrow.svg" alt="" width="29" height="23" /></a>
-              <a href="https://github.com/samanthaoh" target="_blank" rel="noopener noreferrer">GitHub<img src="/figma/social-arrow.svg" alt="" width="29" height="23" /></a>
-              <a href="/SamanthaOhResume.pdf" target="_blank" rel="noopener noreferrer">Resume<img src="/figma/social-arrow.svg" alt="" width="29" height="23" /></a>
+        <main id="about" className="open-hero composed-hero">
+          <div className="hero-portrait-composition">
+            <div className="hero-photo-frame">
+              <img src="/figma/portrait.png" alt="Samantha Oh" width="240" height="338" />
+              <div className="polaroid-caption">
+                <span className="polaroid-signature" aria-hidden="true">Samantha</span>
+              </div>
             </div>
-          </section>
+            <div className="hero-photo-butterfly"><Butterfly /></div>
+          </div>
+          <div className="hero-introduction">
+            <div className="hero-signature"><h1>Samantha <span>Oh.</span></h1></div>
+            <div className="hero-statement">
+              <h2>Building AI for <span>social good.</span><br />Through thoughtful products.</h2>
+              <p>Hi! I'm Samantha Oh, an Informatics student at UW in Seattle and originally from the DC area.</p>
+              <nav className="hero-profile-links" aria-label="Connect with Samantha">
+                <a href="https://linkedin.com/in/samantha-oh/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+                <a href="https://github.com/samanthaoh" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+                <a href="mailto:sgoh6@uw.edu">Email <span aria-hidden="true">↗</span></a>
+                <a href="/SamanthaOhResume.pdf" target="_blank" rel="noopener noreferrer">Resume <span aria-hidden="true">↗</span></a>
+              </nav>
+            </div>
+          </div>
         </main>
       </div>
 
