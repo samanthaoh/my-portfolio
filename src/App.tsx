@@ -1,3 +1,4 @@
+import AnimatedName from "./AnimatedName"
 import About from "./About"
 import SiteHeader from "./SiteHeader"
 import { projects, experience, skills, catLabels } from "./data"
@@ -12,7 +13,7 @@ export default function App() {
         <main className="figma-home-content">
           <div className="figma-name-tag">
             <div className="figma-name-heading">
-              <h1>Samantha Oh</h1>
+              <AnimatedName />
               <img className="figma-name-underline" src="/figma/home-underline.svg" alt="" />
             </div>
             <a className="figma-resume" href="/SamanthaOhResume.pdf" target="_blank" rel="noopener noreferrer">Resume <span aria-hidden="true">↗</span></a>

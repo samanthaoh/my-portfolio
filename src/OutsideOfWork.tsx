@@ -9,14 +9,12 @@ export default function OutsideOfWork() {
       title: "Director of PR, IUGA",
       body:
         "I handle PR for the UW Informatics Undergraduate Association, where I'm building our brand identity and marketing events to a 1,000+ follower community. My goal is to bridge the gap between Informatics students, the broader campus, and career opportunities.",
-      tags: [],
     },
     {
       label: "Interests",
       title: "Outside of Work",
       body:
         "I love going to concerts, some of my recent favorites were Tate McRae and Madison Beer. I also love exploring new coffee and matcha spots, you can usually find me in a café on the weekends. Also, I've recently been trying to get back into reading!",
-      tags: [],
     },
   ]
 
@@ -30,7 +28,7 @@ export default function OutsideOfWork() {
         </div>
         <div className="hobby-grid">
           {cards.map((card) => (
-            <article key={card.title} className={`hobby-card ${card.label === "Leadership" ? "hobby-leadership" : "hobby-interests"}`}>
+            <article key={card.title} className="hobby-card">
               <div className="hobby-card-header">
                 <span className="section-label">{card.label}</span>
                 <svg className="hobby-illustration" viewBox="0 0 120 80" fill="none" aria-hidden="true">
@@ -53,9 +51,7 @@ export default function OutsideOfWork() {
               </div>
               <h3>{card.title}</h3>
               <p>{card.body}</p>
-              {card.tags.length > 0 && <div className="hobby-tags">
-                {card.tags.map((tag) => <span key={tag}>{tag}</span>)}
-              </div>}
+
             </article>
           ))}
         </div>

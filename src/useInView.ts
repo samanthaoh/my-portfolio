@@ -19,6 +19,6 @@ export function useInView(threshold = 0.12) {
     )
     obs.observe(el)
     return () => obs.disconnect()
-  }, [])
+  }, [threshold])
   return [ref, inView] as const
 }
