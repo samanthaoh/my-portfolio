@@ -35,12 +35,9 @@ export default function App() {
         <div className="container">
           <div className="section-heading">
             <div>
-              <span className="section-label label-accent-2">
-                Experience
-              </span>
 
               <h2 className="section-title">
-                Where I've <em>worked.</em>
+                experience
               </h2>
             </div>
 
@@ -62,12 +59,9 @@ export default function App() {
         <div className="container">
           <div className="section-heading">
             <div>
-              <span className="section-label label-accent">
-                Projects
-              </span>
 
               <h2 className="section-title">
-                Things I've <em>made.</em>
+                projects
               </h2>
             </div>
 
@@ -87,12 +81,9 @@ export default function App() {
       {/* SKILLS */}
       <section id="skills" className="section section-soft">
         <div className="container">
-          <span className="section-label label-accent-2">
-            Skills
-          </span>
 
           <h2 className="section-title">
-            What I work <em>with.</em>
+            skills
           </h2>
 
 

@@ -1,5 +1,4 @@
 import { useInView } from "./useInView"
-import SectionLabel from "./SectionLabel"
 
 export default function OutsideOfWork() {
   const [ref, inView] = useInView()
@@ -26,8 +25,7 @@ export default function OutsideOfWork() {
       <div className="container" ref={ref}>
         <div className={`section-heading fade-up ${inView ? "visible" : ""}`}>
           <div>
-            <SectionLabel>Fun</SectionLabel>
-            <h2 className="section-title">Off <em>the clock</em>.</h2>
+            <h2 className="section-title">fun</h2>
           </div>
         </div>
         <div className="hobby-grid">
