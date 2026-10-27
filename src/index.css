@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=42dot+Sans:wght@400;500;700&family=Anonymous+Pro&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..500&family=Instrument+Sans:wght@400;500;600&display=swap');
@@ -2084,3 +2085,26 @@ a {
 #experience, #skills { background: #fff; }
 #hobbies .hobby-card { background: #fff; }
 #skills .skill-category { background: #f7f4f8; }
+
+/* Pair the About title with the headshot. */
+.headshot-section {
+  grid-template-columns: auto minmax(0, 380px);
+  justify-content: center;
+  gap: clamp(40px, 8vw, 120px);
+}
+.headshot-section h2 {
+  margin: 0;
+  color: var(--accent);
+  font: 600 clamp(56px, 7vw, 100px)/1.1 'Rokiest', sans-serif;
+  letter-spacing: .02em;
+}
+@media (max-width: 700px) {
+  .headshot-section { grid-template-columns: minmax(0, 380px); gap: 28px; }
+  .headshot-section h2 { justify-self: start; }
+}
+
+.headshot-heading p {
+  margin: 16px 0 0;
+  color: var(--accent);
+  font: 400 clamp(18px, 2vw, 24px)/1.5 'Open Sans', sans-serif;
+}
