@@ -1,48 +1,40 @@
 import { projects, experience, skills, catLabels } from "./data"
 import OutsideOfWork from "./OutsideOfWork"
-import Butterfly from "./Butterfly"
 import ProjectPreview from "./ProjectPreview"
 
 const navItems = [
-  { id: "about", label: "ABOUT" },
-  { id: "experience", label: "EXPERIENCE" },
-  { id: "hobbies", label: "HOBBIES" },
-  { id: "projects", label: "PROJECTS" },
-  { id: "skills", label: "SKILLS" },
+  { id: "about", label: "about" },
+  { id: "experience", label: "experience" },
+  { id: "projects", label: "projects" },
+  { id: "skills", label: "skills" },
+  { id: "hobbies", label: "fun" },
 ]
 
 export default function App() {
   return (
     <div className="site">
-      <div className="portfolio-home" id="top">
+      <div className="portfolio-home figma-home" id="top">
         <header className="home-header">
-          <a href="#top" className="home-name" aria-label="Samantha Oh, back to top"><img src="/favicon.svg" alt="" width="48" height="48" /></a>
+          <a href="#top" className="home-name" aria-label="Samantha Oh, back to top">SO</a>
           <nav className="home-nav" aria-label="Main navigation">
             {navItems.map((item) => <a key={item.id} href={`#${item.id}`}>{item.label}</a>)}
           </nav>
         </header>
-        <main id="about" className="open-hero composed-hero">
-          <div className="hero-portrait-composition">
-            <div className="hero-photo-frame">
-              <img src="/figma/portrait.png" alt="Samantha Oh" width="240" height="338" />
-              <div className="polaroid-caption">
-                <span className="polaroid-signature" aria-hidden="true">Samantha</span>
-              </div>
+        <main id="about" className="figma-home-content">
+          <div className="figma-name-tag">
+            <div className="figma-name-heading">
+              <h1>Samantha Oh</h1>
+              <img className="figma-name-underline" src="/figma/home-underline.svg" alt="" />
             </div>
-            <div className="hero-photo-butterfly"><Butterfly /></div>
+            <a className="figma-resume" href="/SamanthaOhResume.pdf" target="_blank" rel="noopener noreferrer">Resume <span aria-hidden="true">↗</span></a>
           </div>
-          <div className="hero-introduction">
-            <div className="hero-signature"><h1>Samantha <span>Oh.</span></h1></div>
-            <div className="hero-statement">
-              <h2>Building AI for <span>social good.</span><br />Through thoughtful products.</h2>
-              <p>Hi! I'm Samantha Oh, an Informatics student at UW in Seattle and originally from the DC area.</p>
-              <nav className="hero-profile-links" aria-label="Connect with Samantha">
-                <a href="https://linkedin.com/in/samantha-oh/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
-                <a href="https://github.com/samanthaoh" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
-                <a href="mailto:sgoh6@uw.edu">Email <span aria-hidden="true">↗</span></a>
-                <a href="/SamanthaOhResume.pdf" target="_blank" rel="noopener noreferrer">Resume <span aria-hidden="true">↗</span></a>
-              </nav>
-            </div>
+          <div className="figma-home-bottom">
+            <p>Hi! I’m currently studying Informatics: Data Science at the University of Washington in Seattle.</p>
+            <nav className="figma-social-links" aria-label="Connect with Samantha">
+              <a href="https://linkedin.com/in/samantha-oh/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+              <a href="https://github.com/samanthaoh" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+              <a href="mailto:sgoh6@uw.edu">Email <span aria-hidden="true">↗</span></a>
+            </nav>
           </div>
         </main>
       </div>
@@ -73,9 +65,6 @@ export default function App() {
           </div>
         </div>
       </section>
-
-      {/* OUTSIDE OF WORK */}
-      <OutsideOfWork />
 
       {/* PROJECTS */}
       <section id="projects" className="section">
@@ -138,12 +127,15 @@ export default function App() {
         </div>
       </section>
 
+      {/* OUTSIDE OF WORK */}
+      <OutsideOfWork />
+
       {/* FOOTER */}
       <footer className="footer">
         <div className="container footer-inner">
-          <span className="footer-name">
-            samantha oh
-          </span>
+          <a className="footer-name" href="#top" aria-label="Samantha Oh, back to top">
+            Samantha Oh ↑
+          </a>
 
           <span className="footer-copy">
             © 2026 Samantha Oh · Built with React + Vite
