@@ -5,6 +5,14 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Samantha Oh</title>
+    <script type="module">
+      if (import.meta.env.DEV && window.location.hash.includes('figmacapture=')) {
+        const script = document.createElement('script')
+        script.src = 'https://mcp.figma.com/mcp/html-to-design/capture.js'
+        script.async = true
+        document.head.appendChild(script)
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

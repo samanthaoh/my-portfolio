@@ -1,57 +1,41 @@
 import { projects, experience, skills, catLabels } from "./data"
 import OutsideOfWork from "./OutsideOfWork"
-import Butterfly from "./Butterfly"
 import ProjectPreview from "./ProjectPreview"
 
 const navItems = [
-  { id: "about", label: "ABOUT" },
-  { id: "experience", label: "EXPERIENCE" },
-  { id: "hobbies", label: "HOBBIES" },
-  { id: "projects", label: "PROJECTS" },
-  { id: "skills", label: "SKILLS" },
+  { id: "about", label: "about" },
+  { id: "experience", label: "experience" },
+  { id: "projects", label: "projects" },
+  { id: "skills", label: "skills" },
+  { id: "hobbies", label: "fun" },
 ]
 
 export default function App() {
   return (
     <div className="site">
-      <div className="portfolio-home" id="top">
+      <div className="portfolio-home figma-home" id="top">
         <header className="home-header">
-          <a href="#top" className="home-name" aria-label="Samantha Oh, back to top"><img src="/favicon.svg" alt="" width="48" height="48" /></a>
+          <a href="#top" className="home-name" aria-label="Samantha Oh, back to top">SO</a>
           <nav className="home-nav" aria-label="Main navigation">
-            {navItems.map((item) => (
-              <a key={item.id} href={`#${item.id}`}>{item.label}</a>
-            ))}
+            {navItems.map((item) => <a key={item.id} href={`#${item.id}`}>{item.label}</a>)}
           </nav>
         </header>
-        <main className="home-grid">
-          <section className="home-intro home-card" aria-labelledby="home-title">
-            <h1 id="home-title">Building AI for <span>Social Good</span> through products.</h1>
-          </section>
-          <section id="about" className="home-bio home-card" aria-label="About Samantha">
-            <p>Hi! I'm Samantha Oh, an Informatics student at UW in Seattle and originally from the DC area.</p>
-          </section>
-          <div className="home-art home-card">
-            <Butterfly />
-          </div>
-          <section className="home-focus home-card" aria-labelledby="focus-title">
-            <h2 id="focus-title">Focuses:</h2>
-            <ul><li>Agentic AI</li><li>Data</li><li>Product</li></ul>
-          </section>
-          <div className="home-portrait home-card">
-            <img src="/figma/portrait.png" alt="Samantha Oh" />
-          </div>
-          <section id="home-contact" className="home-contact home-card" aria-label="Contact">
-            <a className="home-contact-top" href="mailto:sgoh6@uw.edu">
-              <span>Have some<br />questions?</span>
-              <img src="/figma/arrow.svg" alt="" width="38" height="38" />
-            </a>
-            <a className="home-email" href="mailto:sgoh6@uw.edu">sgoh6@uw.edu</a>
-            <div className="home-socials">
-              <a href="https://linkedin.com/in/samantha-oh/" target="_blank" rel="noopener noreferrer">LinkedIn<img src="/figma/social-arrow.svg" alt="" width="29" height="23" /></a>
-              <a href="https://github.com/samanthaoh" target="_blank" rel="noopener noreferrer">GitHub<img src="/figma/social-arrow.svg" alt="" width="29" height="23" /></a>
-              <a href="/SamanthaOhResume.pdf" target="_blank" rel="noopener noreferrer">Resume<img src="/figma/social-arrow.svg" alt="" width="29" height="23" /></a>
+        <main id="about" className="figma-home-content">
+          <div className="figma-name-tag">
+            <div className="figma-name-heading">
+              <h1>Samantha Oh</h1>
+              <img className="figma-name-underline" src="/figma/home-underline.svg" alt="" />
             </div>
-          </section>
+            <a className="figma-resume" href="/SamanthaOhResume.pdf" target="_blank" rel="noopener noreferrer">Resume <span aria-hidden="true">↗</span></a>
+          </div>
+          <div className="figma-home-bottom">
+            <p>Hi! I’m currently studying Informatics: Data Science at the University of Washington in Seattle.</p>
+            <nav className="figma-social-links" aria-label="Connect with Samantha">
+              <a href="https://linkedin.com/in/samantha-oh/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+              <a href="https://github.com/samanthaoh" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+              <a href="mailto:sgoh6@uw.edu">Email <span aria-hidden="true">↗</span></a>
+            </nav>
+          </div>
         </main>
       </div>
 
@@ -81,9 +65,6 @@ export default function App() {
           </div>
         </div>
       </section>
-
-      {/* OUTSIDE OF WORK */}
-      <OutsideOfWork />
 
       {/* PROJECTS */}
       <section id="projects" className="section">
@@ -146,12 +127,15 @@ export default function App() {
         </div>
       </section>
 
+      {/* OUTSIDE OF WORK */}
+      <OutsideOfWork />
+
       {/* FOOTER */}
       <footer className="footer">
         <div className="container footer-inner">
-          <span className="footer-name">
-            samantha oh
-          </span>
+          <a className="footer-name" href="#top" aria-label="Samantha Oh, back to top">
+            Samantha Oh ↑
+          </a>
 
           <span className="footer-copy">
             © 2026 Samantha Oh · Built with React + Vite
