@@ -2064,3 +2064,23 @@ a {
 #experience, #skills { background: #f3eef5; }
 #projects, #hobbies { background: #fff; }
 #hobbies .hobby-card { background: #f7f4f8; }
+
+/* A headshot in the natural scroll flow below the home screen. */
+.headshot-section {
+  display: grid;
+  place-items: center;
+  padding: clamp(56px, 7vw, 104px) 20px;
+  background: #fff;
+}
+.headshot-section img {
+  display: block;
+  width: min(100%, 380px);
+  height: auto;
+  border-radius: 20px;
+}
+
+/* Alternate section colors from the home screen through the full page. */
+#about.headshot-section, #projects, #hobbies { background: #f3eef5; }
+#experience, #skills { background: #fff; }
+#hobbies .hobby-card { background: #fff; }
+#skills .skill-category { background: #f7f4f8; }

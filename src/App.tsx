@@ -1,26 +1,15 @@
+import About from "./About"
+import SiteHeader from "./SiteHeader"
 import { projects, experience, skills, catLabels } from "./data"
 import OutsideOfWork from "./OutsideOfWork"
 import ProjectPreview from "./ProjectPreview"
-
-const navItems = [
-  { id: "about", label: "about" },
-  { id: "experience", label: "experience" },
-  { id: "projects", label: "projects" },
-  { id: "skills", label: "skills" },
-  { id: "hobbies", label: "fun" },
-]
 
 export default function App() {
   return (
     <div className="site">
       <div className="portfolio-home figma-home" id="top">
-        <header className="home-header">
-          <a href="#top" className="home-name" aria-label="Samantha Oh, back to top">SO</a>
-          <nav className="home-nav" aria-label="Main navigation">
-            {navItems.map((item) => <a key={item.id} href={`#${item.id}`}>{item.label}</a>)}
-          </nav>
-        </header>
-        <main id="about" className="figma-home-content">
+        <SiteHeader />
+        <main className="figma-home-content">
           <div className="figma-name-tag">
             <div className="figma-name-heading">
               <h1>Samantha Oh</h1>
@@ -38,6 +27,8 @@ export default function App() {
           </div>
         </main>
       </div>
+
+      <About />
 
       {/* EXPERIENCE */}
       <section id="experience" className="section">
