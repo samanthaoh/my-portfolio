@@ -621,6 +621,31 @@ a {
 }
 .figma-social-links a:hover { border-bottom-color: var(--home-ink); }
 .figma-resume:hover { background: #d4c8d8; }
+
+@keyframes home-name-reveal {
+  from { clip-path: inset(-20% 100% -20% -4%); transform: translateX(-12px); }
+  to { clip-path: inset(-20% -4% -20% -4%); transform: translateX(0); }
+}
+@keyframes home-underline-draw {
+  from { transform: scaleX(0); opacity: 0; }
+  to { transform: scaleX(1); opacity: 1; }
+}
+@keyframes home-details-enter {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .figma-name-heading h1 {
+    animation: home-name-reveal 700ms cubic-bezier(.22, 1, .36, 1) 100ms backwards;
+  }
+  .figma-name-underline {
+    transform-origin: left center;
+    animation: home-underline-draw 400ms cubic-bezier(.22, 1, .36, 1) 550ms backwards;
+  }
+  .figma-resume { animation: home-details-enter 450ms ease-out 700ms backwards; }
+  .figma-home-bottom > p { animation: home-details-enter 450ms ease-out 800ms backwards; }
+  .figma-social-links { animation: home-details-enter 450ms ease-out 900ms backwards; }
+}
 @media (max-width: 1100px) {
   .figma-home { padding-top: 36px; padding-bottom: 55px; }
   .figma-home .home-header { padding: 0 28px; }
@@ -829,9 +854,27 @@ html { scroll-padding-top: 140px; }
   box-shadow: 0 4px 8px #00000010, 0 10px 24px #00000020;
 }
 @media (max-width: 700px) {
-  html { scroll-padding-top: 160px; }
-  .site-header-slot { height: 114px; }
-  .figma-home .home-header { top: 12px; left: 20px; right: 20px; }
+  html { scroll-padding-top: 100px; }
+  .site-header-slot { height: 64px; }
+  .figma-home .home-header {
+    top: 12px;
+    left: 20px;
+    right: 20px;
+    padding: 12px;
+    flex-wrap: nowrap;
+    gap: 12px;
+  }
+  .figma-home .home-name { flex-shrink: 0; font-size: 24px; }
+  .figma-home .home-nav {
+    width: auto;
+    flex: 1;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 6px;
+    font-size: clamp(10px, 2.7vw, 15px);
+    letter-spacing: 0;
+  }
+  .figma-home .home-nav a { display: inline-flex; align-items: center; min-height: 40px; }
 }
 
 /* Give each project a full row and a comfortable reading width. */
