@@ -826,7 +826,7 @@ html { scroll-padding-top: 140px; }
   top: 20px;
   left: 3.77vw;
   right: 3.77vw;
-  box-shadow: 0 6px 24px #66416918;
+  box-shadow: 0 4px 8px #00000010, 0 10px 24px #00000020;
 }
 @media (max-width: 700px) {
   html { scroll-padding-top: 160px; }
