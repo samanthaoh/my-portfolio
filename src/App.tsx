@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react"
 import About from "./About"
 import AnimatedName from "./AnimatedName"
 import SiteHeader from "./SiteHeader"
@@ -5,8 +6,45 @@ import { projects, experience, skills, catLabels } from "./data"
 import ProjectPreview from "./ProjectPreview"
 
 export default function App() {
+  const siteRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const preference = window.matchMedia("(prefers-reduced-motion: reduce)")
+    if (preference.matches || !("IntersectionObserver" in window)) return
+
+    const elements = Array.from(siteRef.current?.querySelectorAll<HTMLElement>(
+      ".about-placeholder > *, .section-heading, .work-entry, .project-card, #skills .section-title, .skill-category",
+    ) ?? [])
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("scroll-revealed")
+          observer.unobserve(entry.target)
+        }
+      })
+    }, { threshold: 0, rootMargin: "0px 0px -48px 0px" })
+
+    elements.forEach(element => {
+      if (element.getBoundingClientRect().top < window.innerHeight) return
+      element.classList.add("scroll-reveal")
+      observer.observe(element)
+    })
+
+    function showAll() {
+      if (!preference.matches) return
+      observer.disconnect()
+      elements.forEach(element => element.classList.remove("scroll-reveal", "scroll-revealed"))
+    }
+    preference.addEventListener("change", showAll)
+    return () => {
+      observer.disconnect()
+      preference.removeEventListener("change", showAll)
+      elements.forEach(element => element.classList.remove("scroll-reveal", "scroll-revealed"))
+    }
+  }, [])
+
   return (
-    <div className="site">
+    <div className="site" ref={siteRef}>
       <div className="portfolio-home figma-home" id="top">
         <SiteHeader />
         <main className="figma-home-content">

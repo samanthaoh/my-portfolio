@@ -765,6 +765,21 @@ a {
   -webkit-tap-highlight-color: transparent;
 }
 .name-letter { display: inline-block; }
+@media (prefers-reduced-motion: no-preference) {
+  .scroll-reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 700ms ease, transform 700ms cubic-bezier(.22, 1, .36, 1);
+  }
+  .scroll-reveal.scroll-revealed,
+  .scroll-reveal:focus-within {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media print {
+  .scroll-reveal { opacity: 1; transform: none; }
+}
 .animated-name:focus-visible { outline: 2px solid var(--accent); outline-offset: 12px; border-radius: 6px; }
 #experience .section-heading { margin-bottom: clamp(40px, 5vw, 65px); }
 .experience-list {
