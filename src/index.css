@@ -817,6 +817,23 @@ a {
   .about-placeholder img { width: min(70vw, 200px); }
 }
 
+/* Keep navigation available beyond the home section. */
+html { scroll-padding-top: 140px; }
+.site-header-slot { height: 92px; flex-shrink: 0; }
+.figma-home .home-header {
+  position: fixed;
+  z-index: 100;
+  top: 20px;
+  left: 3.77vw;
+  right: 3.77vw;
+  box-shadow: 0 6px 24px #66416918;
+}
+@media (max-width: 700px) {
+  html { scroll-padding-top: 160px; }
+  .site-header-slot { height: 114px; }
+  .figma-home .home-header { top: 12px; left: 20px; right: 20px; }
+}
+
 /* Give each project a full row and a comfortable reading width. */
 #projects .project-grid { display: flex; flex-direction: column; gap: 32px; }
 #projects .project-card {

@@ -1,4 +1,5 @@
 const navItems = [
+  { href: "#top", label: "home" },
   { href: "#about", label: "about" },
   { href: "#experience", label: "experience" },
   { href: "#projects", label: "projects" },
@@ -7,6 +8,7 @@ const navItems = [
 
 export default function SiteHeader() {
   return (
+    <div className="site-header-slot">
     <header className="home-header">
       <a href="#top" className="home-name" aria-label="Samantha Oh, home">SO</a>
       <nav className="home-nav" aria-label="Main navigation">
@@ -15,5 +17,6 @@ export default function SiteHeader() {
         ))}
       </nav>
     </header>
+    </div>
   )
 }

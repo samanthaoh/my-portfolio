@@ -113,7 +113,7 @@ export default function App() {
       <footer className="footer">
         <div className="container footer-inner">
           <a className="footer-name" href="#top" aria-label="Samantha Oh, back to top">
-            Samantha Oh ↑
+            Samantha Oh
           </a>
 
           <span className="footer-copy">
