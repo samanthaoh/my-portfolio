@@ -161,7 +161,6 @@ function ProjectCard({ project }: { project: (typeof projects)[number] }) {
       <div className="project-copy">
       <div className="project-topline">
         <h3>{project.name}</h3>
-        <span className="project-year">{project.year}</span>
       </div>
       <p className="project-tagline">{project.tagline}</p>
       <p className="project-description">{project.desc}</p>

@@ -2,7 +2,7 @@ export const projects = [
   {
     name: "Music Rec System",
     tagline: "ML-powered song preference predictor",
-    desc: "Engineered a music recommendation system using logistic regression and neural networks to predict user preferences. Cleaned song data with collaborative and comparative filtering.",
+    desc: "Predicts song preferences using logistic regression and neural networks, with song data prepared through collaborative and comparative filtering.",
     stack: ["Python", "Pandas", "Scikit-learn", "Neural Networks"],
     github: "#",
     demo: "#",
@@ -11,7 +11,7 @@ export const projects = [
   {
     name: "Sip",
     tagline: "Café-based social connection app",
-    desc: "Built the Updates and Profile pages with Firebase live data sync. Designed a state-driven mobile-first NavBar and interactive maps with react-leaflet and friend-filtering.",
+    desc: "A social app built around cafés and community. I built the Updates and Profile pages with live Firebase data, mobile navigation, and interactive maps with friend filtering.",
     stack: ["React", "Firebase", "React-Leaflet", "JavaScript", "CSS"],
     github: "#",
     demo: "#",
@@ -20,7 +20,7 @@ export const projects = [
   {
     name: "GroundworkAI",
     tagline: "AI-powered road damage detection · DubHacks 2026",
-    desc: "Built a React and FastAPI app with an interactive React Leaflet map. Integrated Mapillary’s API to retrieve street-level imagery within the map’s bounds and fine-tuned YOLO11 on the US subset of RDD2022 to detect potholes and road cracks. Mapped detections to help reviewers inspect damage and prioritize repairs.",
+    desc: "Helps reviewers find road damage and prioritize repairs. I built the React and FastAPI app, connected Mapillary street imagery to an interactive map, and fine-tuned YOLO11 on US road images from RDD2022 to detect potholes and cracks.",
     stack: ["React", "Python", "YOLO", "FastAPI", "React-Leaflet"],
     github: "https://github.com/jacheun/DubHacks2026",
     demo: "https://ground-work-ai.vercel.app/",
