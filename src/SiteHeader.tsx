@@ -3,7 +3,6 @@ const navItems = [
   { href: "#experience", label: "experience" },
   { href: "#projects", label: "projects" },
   { href: "#skills", label: "skills" },
-  { href: "#hobbies", label: "fun" },
 ]
 
 export default function SiteHeader() {

@@ -1,8 +1,7 @@
-import AnimatedName from "./AnimatedName"
 import About from "./About"
+import AnimatedName from "./AnimatedName"
 import SiteHeader from "./SiteHeader"
 import { projects, experience, skills, catLabels } from "./data"
-import OutsideOfWork from "./OutsideOfWork"
 import ProjectPreview from "./ProjectPreview"
 
 export default function App() {
@@ -109,9 +108,6 @@ export default function App() {
           </div>
         </div>
       </section>
-
-      {/* OUTSIDE OF WORK */}
-      <OutsideOfWork />
 
       {/* FOOTER */}
       <footer className="footer">
