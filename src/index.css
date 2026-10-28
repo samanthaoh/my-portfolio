@@ -847,9 +847,15 @@ a {
   color: #664169;
   font: 400 13px/1.4 var(--font-sans);
 }
-#projects .project-card .project-stack span {
+#projects .project-card .project-stack span,
+#skills .skill-pill,
+#skills .skill-pill:hover {
   border: 1.5px solid #664169;
+  border-radius: 999px;
+  padding: 7px 13px;
   background: #fff;
+  color: #664169;
+  font: 400 13px/1.4 var(--font-sans);
   box-shadow: 0 2px 0 #664169;
 }
 #projects .project-links { margin-top: 20px; gap: 8px 24px; }
