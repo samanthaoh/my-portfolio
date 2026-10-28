@@ -134,21 +134,19 @@ function ExperienceCard({
 }: {
   item: (typeof experience)[number]
 }) {
+  const [company, location] = item.org.split(" · ")
+
   return (
-    <article className="experience-card">
-      <div className="experience-date">
-        {item.period}
+    <article className="work-entry">
+      <div className="work-who">
+        <h3>{company}</h3>
+        <p className="work-role">{item.role}</p>
+        <p className="work-dates">{item.period}</p>
+        <p className="work-location">{location}</p>
       </div>
-
-      <div className="experience-content">
-        <h3>{item.role}</h3>
-
-        <div className="experience-org">
-          {item.org}
-        </div>
-
-        <p>{item.desc}</p>
-      </div>
+      <ul className="work-description">
+        {item.highlights.map(highlight => <li key={highlight}>{highlight}</li>)}
+      </ul>
     </article>
   )
 }

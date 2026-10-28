@@ -25,7 +25,7 @@ export default function AnimatedName() {
         ref={nameRef}
         className="animated-name"
         type="button"
-        aria-label="Samantha Oh — play letter wave"
+        aria-label="Samantha Oh - play letter wave"
         onPointerEnter={event => { if (event.pointerType === "mouse") playWave() }}
         onClick={playWave}
         onFocus={playWave}
