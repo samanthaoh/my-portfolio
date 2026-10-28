@@ -6,7 +6,6 @@ export const projects = [
     stack: ["Python", "Pandas", "Scikit-learn", "Neural Networks"],
     github: "#",
     demo: "#",
-    year: "2024",
   },
   {
     name: "Sip",
@@ -15,7 +14,6 @@ export const projects = [
     stack: ["React", "Firebase", "React-Leaflet", "JavaScript", "CSS"],
     github: "#",
     demo: "#",
-    year: "2026",
   },
   {
     name: "GroundworkAI",
@@ -26,7 +24,6 @@ export const projects = [
     demo: "https://ground-work-ai.vercel.app/",
     devpost: "https://devpost.com/software/groundwork-ai",
     video: "https://youtu.be/Ywb3-EA2uNw",
-    year: "2026",
   },
 ]
 
