@@ -72,13 +72,7 @@ export default function App() {
       <section id="experience" className="section">
         <div className="container">
           <div className="section-heading">
-            <div>
-
-              <h2 className="section-title">
-                experience
-              </h2>
-            </div>
-
+            <h2 className="section-title">experience</h2>
           </div>
 
           <div className="experience-list">
@@ -96,13 +90,7 @@ export default function App() {
       <section id="projects" className="section">
         <div className="container">
           <div className="section-heading">
-            <div>
-
-              <h2 className="section-title">
-                projects
-              </h2>
-            </div>
-
+            <h2 className="section-title">projects</h2>
           </div>
 
           <div className="project-grid">
@@ -119,11 +107,7 @@ export default function App() {
       {/* SKILLS */}
       <section id="skills" className="section section-soft">
         <div className="container">
-
-          <h2 className="section-title">
-            skills
-          </h2>
-
+          <h2 className="section-title">skills</h2>
 
           <div className="skills-by-category">
             {Object.entries(catLabels).map(([category, label]) => (
