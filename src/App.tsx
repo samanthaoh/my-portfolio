@@ -199,6 +199,7 @@ function ProjectCard({ project }: { project: (typeof projects)[number] }) {
       <div className="project-copy">
       <div className="project-topline">
         <h3>{project.name}</h3>
+        {"status" in project && <span className="project-status">{project.status}</span>}
       </div>
       <p className="project-tagline">{project.tagline}</p>
       <p className="project-description">{project.desc}</p>

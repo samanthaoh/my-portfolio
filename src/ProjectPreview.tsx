@@ -1,4 +1,18 @@
 export default function ProjectPreview({ name }: { name: string }) {
+  if (name === "3D Room") return (
+    <div className="project-preview preview-room" role="img" aria-label="Concept illustration of a room layout with furniture. 3D Room is coming soon.">
+      <span className="preview-note">make room for your ideas.</span>
+      <div className="room-plan" aria-hidden="true">
+        <div className="room-window" />
+        <div className="room-rug" />
+        <div className="room-sofa"><i /><i /></div>
+        <div className="room-table" />
+        <div className="room-plant" />
+        <span className="room-door" />
+      </div>
+      <span className="preview-caption">YOUR SPACE, REIMAGINED</span>
+    </div>
+  )
   if (name === "Sip") return (
     <div className="project-preview preview-sip" role="img" aria-label="Illustrated concept preview of Sip, a café connection app">
       <span className="preview-note">a little more connection.</span>

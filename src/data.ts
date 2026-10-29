@@ -1,5 +1,15 @@
 export const projects = [
   {
+    name: "GroundworkAI",
+    tagline: "AI-powered road damage detection · DubHacks 2026",
+    desc: "Helps reviewers find road damage and prioritize repairs. I built the React and FastAPI app, connected Mapillary street imagery to an interactive map, and fine-tuned YOLO11 on US road images from RDD2022 to detect potholes and cracks.",
+    stack: ["React", "Python", "YOLO", "FastAPI", "React-Leaflet"],
+    github: "https://github.com/jacheun/DubHacks2026",
+    demo: "https://ground-work-ai.vercel.app/",
+    devpost: "https://devpost.com/software/groundwork-ai",
+    video: "https://youtu.be/Ywb3-EA2uNw",
+  },
+  {
     name: "Music Rec System",
     tagline: "ML-powered song preference predictor",
     desc: "Predicts song preferences using logistic regression and neural networks, with song data prepared through collaborative and comparative filtering.",
@@ -16,14 +26,13 @@ export const projects = [
     demo: "#",
   },
   {
-    name: "GroundworkAI",
-    tagline: "AI-powered road damage detection · DubHacks 2026",
-    desc: "Helps reviewers find road damage and prioritize repairs. I built the React and FastAPI app, connected Mapillary street imagery to an interactive map, and fine-tuned YOLO11 on US road images from RDD2022 to detect potholes and cracks.",
-    stack: ["React", "Python", "YOLO", "FastAPI", "React-Leaflet"],
-    github: "https://github.com/jacheun/DubHacks2026",
-    demo: "https://ground-work-ai.vercel.app/",
-    devpost: "https://devpost.com/software/groundwork-ai",
-    video: "https://youtu.be/Ywb3-EA2uNw",
+    name: "3D Room",
+    status: "Coming soon",
+    tagline: "Visualize your space before you move in",
+    desc: "A room-planning app in development for homeowners, renters, and designers. Upload a reference, arrange furniture in an interactive 3D room, and save layouts to revisit—making it easier to plan a space before moving in.",
+    stack: ["Reference uploads", "Interactive 3D editor", "Saved spaces"],
+    github: "https://github.com/samanthaoh/3d-room",
+    demo: "#",
   },
 ]
 
