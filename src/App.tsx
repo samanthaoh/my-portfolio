@@ -105,7 +105,7 @@ export default function App() {
       </section>
 
       {/* SKILLS */}
-      <section id="skills" className="section section-soft">
+      <section id="skills" className="section">
         <div className="container">
           <h2 className="section-title">skills</h2>
 

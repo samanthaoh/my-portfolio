@@ -83,13 +83,6 @@ a {
 .skill-pill {
   font-size: 0.78rem;
   font-weight: 500;
-  transition:
-    transform 0.18s ease,
-    box-shadow 0.18s ease;
-}
-
-.footer {
-  border-top: 1px solid var(--border);
 }
 
 .footer-inner {
@@ -100,8 +93,6 @@ a {
 }
 
 .footer-name {
-  font-family: var(--font-display);
-  font-size: 0.95rem;
   font-style: italic;
 }
 
@@ -121,22 +112,8 @@ a {
     width: min(100% - 2.5rem, 1080px);
   }
 
-  .section {
-    padding: 5rem 0;
-  }
-
-  .section-heading {
-    display: block;
-  }
-
-  .skills-by-category {
-    grid-template-columns: 1fr;
-  }
-
   .footer-inner {
-    flex-direction: column;
     justify-content: center;
-    padding: 1.4rem 0;
   }
 }
 
@@ -162,31 +139,18 @@ a {
 .home-nav a:hover { text-decoration: underline; }
 .portfolio-home a:focus-visible { outline: 2px solid #000; outline-offset: 5px; border-radius: 3px; }
 @media (max-width: 700px) {
-  .portfolio-home { padding: 14px; width: calc(100% - 16px); margin-top: 8px; }
-  .home-header { height: auto; min-height: 100px; padding: 20px; flex-wrap: wrap; gap: 18px; }
-  .home-nav { flex-wrap: wrap; font-size: 13px; gap: 14px; }
+  .portfolio-home { padding: 14px; margin-top: 8px; }
 }
-:root {
-}
-.section { padding: 64px 0; }
-.section-heading { align-items: end; gap: 32px; margin-bottom: 28px; }
-.section-title { font-size: clamp(36px, 4vw, 56px); font-weight: 400; line-height: 1.08; }
+.section-heading { align-items: end; gap: 32px; }
 .skills-by-category { margin-top: 28px; }
 .skill-category { padding: 32px; border: 0; border-radius: 20px; background: var(--pastel-lilac); }
 .skill-category-title { font: 18px var(--font-sans); letter-spacing: 0; margin-bottom: 24px; }
-.skill-pill:hover { transform: none; box-shadow: none; }
 .footer { border: 0; }
 .footer-inner { padding: 28px 30px; }
 .footer-copy { font: 14px/1.5 var(--font-sans); opacity: 1; }
 @media (max-width: 700px) {
-  .section { padding: 36px 0; }
-  .section > .container, .footer > .container { width: calc(100% - 44px); }
   .section-heading { display: block; }
-  .skills-by-category { grid-template-columns: 1fr; } .skill-category { padding: 26px; }
-  .footer-inner { align-items: flex-start; padding: 24px; gap: 16px; }
-}
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
+  .footer-inner { gap: 16px; }
 }
 .project-preview { height: 300px; border-radius: 20px; position: relative; overflow: hidden; display: grid; place-items: center; }
 .preview-note { position: absolute; top: 22px; left: 22px; font: 500 16px var(--font-sans); }
@@ -218,18 +182,9 @@ a {
 .project-preview { height: 320px; }
 }
 
-#projects { padding: 64px 0; }
-
-#projects .section-heading { margin-bottom: 28px; }
-@media (max-width: 700px) {
-  #projects { padding: 36px 0; }
-  #projects .section-heading { margin-bottom: 28px; }
-}
-
 .groundwork-interactive { display: flex; flex-direction: column; }
 .groundwork-preview-viewport { position: relative; width: 100%; flex: 1; min-height: 0; overflow: hidden; }
 .groundwork-preview-viewport iframe { width: 200%; height: 200%; border: 0; transform: scale(.5); transform-origin: top left; background: #fff; }
-:root { --ink-purple: #60348c; }
 .portfolio-home { width: calc(100% - 96px); max-width: 1320px; padding: 0; margin: 0 auto; }
 .home-header { border-bottom: 1px solid #60348c20; }
 .home-name { align-items: center; gap: 12px; }
@@ -239,9 +194,7 @@ a {
 }
 @media (max-width: 700px) {
 .portfolio-home { width: calc(100% - 44px); }
-.home-header { height: auto; padding: 22px 0; gap: 22px; }
 .home-name { font-size: 19px; }
-.home-nav { flex-wrap: wrap; gap: 15px; font-size: 10px; }
 }
 .home-header {
   height: 101px;
@@ -398,9 +351,7 @@ a {
 }
 @media (max-width: 700px) {
   .figma-home { padding: 22px 20px 36px; }
-  .figma-home .home-header { height: auto; min-height: 0; padding: 18px 20px; gap: 18px; flex-wrap: wrap; }
-  .figma-home .home-name { font-size: 30px; }
-  .figma-home .home-nav { width: 100%; justify-content: space-between; gap: 10px; flex-wrap: wrap; font-size: 15px; }
+  .figma-home .home-header { height: auto; min-height: 0; }
   .figma-home-content { display: flex; flex-direction: column; }
   .figma-name-tag { margin: auto 0; padding: 65px 0 45px; }
   .figma-name-heading h1 { font-size: 10.2vw; }
@@ -415,10 +366,8 @@ a {
   --font-sans: 'DM Sans', sans-serif;
   --font-display: 'Rokiest', sans-serif;
   --bg: #fff;
-  --bg-card: #fff;
   --bg-section: #f7f4f8;
   --text: #000;
-  --muted: #000;
   --accent: #664169;
   --border: #e1dae3;
   --pastel-lilac: #e1dae3;
@@ -427,7 +376,6 @@ a {
 }
 .site { background: #fff; }
 .section, #projects { padding: clamp(56px, 7vw, 104px) 0; }
-.section-soft { background: var(--bg-section); }
 .section > .container, .footer > .container {
   width: calc(100% - 11.2vw);
   max-width: 1296px;
@@ -438,7 +386,8 @@ a {
   font: 600 clamp(36px, 4.2vw, 60px)/1.15 var(--font-display);
   letter-spacing: .01em;
 }
-.project-preview { background: var(--bg-section); border: 1px solid var(--border); } .skill-pill {
+.project-preview { background: var(--bg-section); border: 1px solid var(--border); }
+.skill-pill {
   background: var(--chip-bg);
   border: 1px solid var(--border);
   color: var(--chip-text);
@@ -449,7 +398,6 @@ a {
 .skills-by-category { gap: 24px; }
 .skill-category, .skill-category:nth-child(n) { background: #fff; border: 1px solid var(--border); border-radius: 20px; padding: 32px; }
 .skill-category-title { color: var(--accent); font-size: 19px; text-transform: none; }
-.skill-pill:hover { background: var(--chip-bg); color: var(--chip-text); border-color: var(--border); }
 .footer { background: #fff; padding: 32px 0; }
 .footer-inner { background: var(--pastel-lilac); border-radius: 20px; gap: 24px; }
 .footer-name { color: var(--accent); font: 600 26px var(--font-display); text-decoration: none; }
@@ -463,8 +411,7 @@ a {
   .section > .container, .footer > .container { width: calc(100% - 40px); }
   .skills-by-category { grid-template-columns: 1fr; }
   .skill-category { padding: 24px; }
-  .section-heading, #projects .section-heading { margin-bottom: 28px; }
-  .footer-inner { flex-direction: column; align-items: flex-start; padding: 24px; }
+  .section-heading,   .footer-inner { flex-direction: column; align-items: flex-start; padding: 24px; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
